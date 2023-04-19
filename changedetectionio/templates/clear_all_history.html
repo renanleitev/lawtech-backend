@@ -1,0 +1,48 @@
+{% extends 'base.html' %} {% block content %}
+<div class="edit-form">
+  <div class="box-wrap inner">
+    <form
+      class="pure-form pure-form-stacked"
+      action="{{url_for('clear_all_history')}}"
+      method="POST"
+    >
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+      <fieldset>
+        <div class="pure-control-group">
+          Isso irá remover todo o histórico de atualizações de todas as URLs, mas irá
+          manter a sua lista de URLs. <br />
+          Se quiser, você pode usar a opção de <strong>BACKUP</strong> antes.<br />
+        </div>
+        <br />
+        <div class="pure-control-group">
+          <label for="confirmtext">Confirmar</label>
+          <input
+            type="text"
+            id="confirmtext"
+            required=""
+            name="confirmtext"
+            value=""
+            size="10"
+          />
+          <span class="pure-form-message-inline"
+            >Digite a palavra <strong>clear</strong> para confirmar que você compreende.</span
+          >
+        </div>
+        <br />
+        <div class="pure-control-group">
+          <button type="submit" class="pure-button pure-button-primary">
+            Histórico Limpo!
+          </button>
+        </div>
+        <br />
+        <div class="pure-control-group">
+          <a href="{{url_for('index')}}" class="pure-button button-cancel"
+            >Cancelar</a
+          >
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
