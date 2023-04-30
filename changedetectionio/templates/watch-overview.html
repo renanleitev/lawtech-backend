@@ -18,12 +18,12 @@
                 </div>
                 <div>
                     {{ render_simple_field(form.watch_submit_button, title="Watch this URL!" ) }}
-                    {{ render_simple_field(form.edit_and_watch_submit_button, title="Edit first then Watch") }}
+                    <!-- {{ render_simple_field(form.edit_and_watch_submit_button, title="Edit first then Watch") }} -->
                 </div>
             </div>
-            <div id="quick-watch-processor-type">
+            <!-- <div id="quick-watch-processor-type">
                 {{ render_simple_field(form.processor, title="Edit first then Watch") }}
-            </div>
+            </div> -->
 
         </fieldset>
     </form>
@@ -62,7 +62,7 @@
                 {% set arrow_span = "" %}
                 <th><a class="{{ 'active '+link_order if sort_attribute == 'label' else 'inactive' }}" href="{{url_for('index', sort='label', order=link_order, tag=active_tag)}}">URL <span class='arrow {{link_order}}'></span></a></th>
                 <th><a class="{{ 'active '+link_order if sort_attribute == 'last_checked' else 'inactive' }}" href="{{url_for('index', sort='last_checked', order=link_order, tag=active_tag)}}">Última checagem<span class='arrow {{link_order}}'></span></a></th>
-                <th><a class="{{ 'active '+link_order if sort_attribute == 'last_changed' else 'inactive' }}" href="{{url_for('index', sort='last_changed', order=link_order, tag=active_tag)}}">Última atualização<span class='arrow {{link_order}}'></span></a></th>
+                <th><a class="{{ 'active '+link_order if sort_attribute == 'last_changed' else 'inactive' }}" href="{{url_for('index', sort='last_changed', order=link_order, tag=active_tag)}}">Última atualização   <span class='arrow {{link_order}}'></span></a></th>
                 <th></th>
             </tr>
             </thead>

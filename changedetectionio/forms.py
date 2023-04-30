@@ -382,19 +382,19 @@ class SingleBrowserStep(Form):
 class watchForm(commonSettingsForm):
 
     url = fields.URLField('URL', validators=[validateURL()])
-    tag = StringField('Group tag', [validators.Optional()], default='')
+    tag = StringField('Tag', [validators.Optional()], default='')
 
     time_between_check = FormField(TimeBetweenCheckForm)
 
     include_filters = StringListField('CSS/JSONPath/JQ/XPath Filters', [ValidateCSSJSONXPATHInput()], default='')
 
-    subtractive_selectors = StringListField('Remove elements', [ValidateCSSJSONXPATHInput(allow_xpath=False, allow_json=False)])
+    subtractive_selectors = StringListField('Remover elementos', [ValidateCSSJSONXPATHInput(allow_xpath=False, allow_json=False)])
 
-    extract_text = StringListField('Extract text', [ValidateListRegex()])
+    extract_text = StringListField('Extrair texto', [ValidateListRegex()])
 
-    title = StringField('Title', default='')
+    title = StringField('Título', default='')
 
-    ignore_text = StringListField('Ignore text', [ValidateListRegex()])
+    ignore_text = StringListField('Ignorar texto', [ValidateListRegex()])
     headers = StringDictKeyValue('Request headers')
     body = TextAreaField('Request body', [validators.Optional()])
     method = SelectField('Request method', choices=valid_method, default=default_method)

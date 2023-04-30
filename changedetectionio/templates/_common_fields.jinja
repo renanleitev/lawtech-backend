@@ -4,9 +4,9 @@
 {% macro render_common_settings_form(form, emailprefix, settings_application) %}
                         <div class="pure-control-group">
                             {{ render_field(form.notification_urls, rows=5, placeholder="Exemplos:
-Yahoo - mailto://{usuário}:{senha_email}@yahoo.com
-Hotmail - mailto://{usuário}:{senha_email}@hotmail.com
-Gmail - mailto://{usuário}:{senha_email}@gmail.com
+Yahoo - mailtos://{usuário}:{senha_email}@yahoo.com
+Hotmail - mailtos://{usuário}:{senha_email}@hotmail.com
+Gmail - mailtos://{usuário}:{senha_email}@gmail.com
 Discord - discord://webhook_id/webhook_token
 ",
     class="notification-urls" )
@@ -24,7 +24,7 @@ Discord - discord://webhook_id/webhook_token
                             <div class="notifications-wrapper">
                               <a id="send-test-notification" class="pure-button button-secondary button-xsmall" >Enviar notificação de teste</a>
                               {# <a id="add-email-helper" class="pure-button button-secondary button-xsmall" >Add email</a> #}
-                              <a href="{{url_for('notification_logs')}}" class="pure-button button-secondary button-xsmall" >Notification debug logs</a>
+                              <a href="{{url_for('notification_logs')}}" class="pure-button button-secondary button-xsmall" >Logs de notificações</a>
                             </div>
                         </div>
                         <div id="notification-customisation" class="pure-control-group">

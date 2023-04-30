@@ -5,9 +5,9 @@
 {% from '_common_fields.jinja' import render_common_settings_form %}
 <script>
     const notification_base_url="{{url_for('ajax_callback_send_notification_test')}}";
-{% if emailprefix %}
-    const email_notification_prefix=JSON.parse('{{emailprefix|tojson}}');
-{% endif %}
+// {% if emailprefix %}
+//     const email_notification_prefix=JSON.parse('{{emailprefix|tojson}}');
+// {% endif %}
 </script>
 <script type="text/javascript" src="{{url_for('static_content', group='js', filename='tabs.js')}}" defer></script>
 <script type="text/javascript" src="{{url_for('static_content', group='js', filename='notifications.js')}}" defer></script>
@@ -30,6 +30,9 @@
             <div class="tab-pane-inner" id="general">
                 <fieldset>
                     <div class="pure-control-group">
+                        <h2>
+                            Tempo entre checagem 
+                        </h2>
                         {{ render_field(form.requests.form.time_between_check, class="time-check-widget") }}
                         <span class="pure-form-message-inline">
                             Intervalo padrão de atualização, quando o sistema não tem uma configuração de intervalo específica.
@@ -145,12 +148,12 @@
 footer
 nav
 .stockticker") }}
-                      <span class="pure-form-message-inline">
+                      <!-- <span class="pure-form-message-inline">
                         <ul>
                           <li> Remove HTML element(s) by CSS selector before text conversion. </li>
                           <li> Add multiple elements or CSS selectors per line to ignore multiple parts of the HTML. </li>
                         </ul>
-                      </span>
+                      </span> -->
                     </fieldset>
                     <fieldset class="pure-group">
                     {{ render_field(form.application.form.global_ignore_text, rows=5, placeholder="Some text to ignore in a line
@@ -169,7 +172,7 @@ nav
                     </fieldset>
            </div>
 
-            <div class="tab-pane-inner" id="api">
+            <!-- <div class="tab-pane-inner" id="api">
 
                 <p>Drive your changedetection.io via API, More about <a href="https://github.com/dgtlmoon/changedetection.io/wiki/API-Reference">API access here</a></p>
 
@@ -180,8 +183,8 @@ nav
                         <span style="display:none;" id="api-key-copy" >copy</span>
                     </div>
                 </div>
-            </div>
-            <div class="tab-pane-inner" id="proxies">
+            </div> -->
+            <!-- <div class="tab-pane-inner" id="proxies">
 
                 <p><strong>Tip</strong>: You can connect to websites using <a href="https://brightdata.grsm.io/n0r16zf7eivq">BrightData</a> proxies, their service <strong>WebUnlocker</strong> will solve most CAPTCHAs, whilst their <strong>Residential Proxies</strong> may help to avoid CAPTCHA altogether. </p>
                 <p>It may be easier to try <strong>WebUnlocker</strong> first, WebUnlocker also supports country selection.</p>
@@ -197,7 +200,7 @@ nav
                     {{ render_field(form.requests.form.extra_proxies) }}
                     <span class="pure-form-message-inline">"Name" will be used for selecting the proxy in the Watch Edit settings</span>
                 </div>
-            </div>
+            </div> -->
             <div id="actions">
                 <div class="pure-control-group">
                     {{ render_button(form.save_button) }}
@@ -208,5 +211,4 @@ nav
         </form>
     </div>
 </div>
-
 {% endblock %}

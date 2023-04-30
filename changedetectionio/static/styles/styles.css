@@ -1,6 +1,43 @@
 /*
  * -- BASE STYLES --
  */
+/* Estilos para o cabeçalho */
+header {
+	background-color: var(--color-background);
+	padding: 20px;
+	text-align: center;
+  /* margin-bottom: 200px; */
+}
+header > h1 > a {
+	float: left;
+  color: var(--color-background-button-tag-active);
+}
+header > h1 > a:hover {
+  color: var(--color-black);
+}
+header > hr {
+	margin-top: 60px;
+}
+header > nav > ul {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+  	float: right;
+	margin-top: 10px;
+  list-style-type: none;
+}
+header > nav > ul > li {
+	margin: 0 10px;
+}
+header > nav > ul > li > a {
+	font-weight: bold;
+	font-size: 16px;
+  color: var(--color-background-button-tag-active);
+}
+header > nav > ul > li > a:hover{
+  color: var(--color-black);
+}
+/* Outras configurações */
 .arrow {
   border: solid #1b98f8;
   border-width: 0 2px 2px 0;
@@ -330,7 +367,10 @@ button.toggle-theme {
   display: flex;
   justify-content: space-between;
   border-bottom: 2px solid var(--color-menu-accent);
-  align-items: center; }
+  align-items: center; 
+  top: 100px;
+  position: absolute;
+}
 
 .pure-menu-heading {
   color: var(--color-text-menu-heading); }
@@ -405,7 +445,9 @@ code {
 
 body:after {
   content: "";
-  background: linear-gradient(130deg, var(--color-background-gradient-first), var(--color-background-gradient-second) 41.07%, var(--color-background-gradient-third) 84.05%); }
+  background: none;
+}
+  /* background: linear-gradient(130deg, var(--color-background-gradient-first), var(--color-background-gradient-second) 41.07%, var(--color-background-gradient-third) 84.05%); } */
 
 body:after,
 body:before {
