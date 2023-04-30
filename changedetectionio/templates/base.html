@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Self hosted website change detection."/>
+    <meta name="description" content="Sistema de atualização e notificação de processos"/>
     <title>LawTech{{extra_title}}</title>
     <link rel="alternate" type="application/rss+xml" title="Changedetection.io » Feed{% if active_tag %}- {{active_tag}}{% endif %}" href="{{ url_for('rss', tag=active_tag , token=app_rss_token)}}"/>
     <link rel="stylesheet" href="{{url_for('static_content', group='styles', filename='pure-min.css')}}"/>
@@ -26,9 +26,9 @@
     <meta name="theme-color" content="#ffffff"/>
 
     <style>
-      body::before {
+      /* body::before {
         background-image: url({{url_for('static_content', group='images', filename='gradient-border.png') }});
-      }
+      } */
     </style>
     <script type="text/javascript" src="{{url_for('static_content', group='js', filename='jquery-3.6.0.min.js')}}"></script>
   </head>
@@ -38,10 +38,12 @@
       <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed" id="nav-menu">
         {% if has_password and not current_user.is_authenticated %}
           <a class="pure-menu-heading" href="#" rel="noopener">
-            <strong>Law</strong>Tech</a>
+            <strong>JusUpdate</strong>
+          </a>
         {% else %}
           <a class="pure-menu-heading" href="{{url_for('index')}}">
-            <strong>Law</strong>Tech</a>
+            <strong>JusUpdate</strong>
+          </a>
         {% endif %}
         {% if current_diff_url %}
           <a class="current-diff-url" href="{{ current_diff_url }}">
@@ -76,7 +78,7 @@
             {% if dark_mode %}
             {% set darkClass = 'dark' %}
             {% endif %}
-            <button class="toggle-theme {{darkClass}}" type="button" title="Toggle Light/Dark Mode">
+            <button class="toggle-theme {{darkClass}}" type="button" title="Ativar/desativar modo noturno">
               <span class="visually-hidden">Ativar/desativar modo noturno</span>
               <span class="icon-light">
                 {% include "svgs/light-mode-toggle-icon.svg" %}
@@ -89,14 +91,14 @@
         </ul>
       </div>
     </div>
-    {% if left_sticky %}
+    <!-- {% if left_sticky %}
       <div class="sticky-tab" id="left-sticky">
         <a href="{{url_for('preview_page', uuid=uuid)}}">Mostrar última atualização</a>
       </div>
-    {% endif %}
-    {% if right_sticky %}
+    {% endif %} -->
+    <!-- {% if right_sticky %}
       <div class="sticky-tab" id="right-sticky">{{ right_sticky }}</div>
-    {% endif %}
+    {% endif %} -->
     <section class="content">
       <header>
         {% block header %}{% endblock %}

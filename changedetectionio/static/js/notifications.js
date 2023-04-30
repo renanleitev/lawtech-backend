@@ -32,7 +32,7 @@ $(document).ready(function() {
     }
     for (key in data) {
       if (!data[key].length) {
-        alert(key+" is empty, cannot send test.")
+        alert(key+" está vazio, não é possível testar.")
         return;
       }
     }
@@ -44,7 +44,7 @@ $(document).ready(function() {
         statusCode: {
         400: function() {
             // More than likely the CSRF token was lost when the server restarted
-          alert("There was a problem processing the request, please reload the page.");
+          alert("Ocorreu um problema ao processar a solicitação, recarregue a página.");
         }
       }
     }).done(function(data){
@@ -52,7 +52,7 @@ $(document).ready(function() {
       alert('Sent');
     }).fail(function(data){
       console.log(data);
-      alert('There was an error communicating with the server.');
+      alert('Ocorreu um erro de comunicação com o servidor.');
     })
   });
 });

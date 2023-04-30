@@ -7,11 +7,11 @@
     const notification_base_url="{{url_for('ajax_callback_send_notification_test')}}";
     const watch_visual_selector_data_url="{{url_for('static_content', group='visual_selector_data', filename=uuid)}}";
     const screenshot_url="{{url_for('static_content', group='screenshot', filename=uuid)}}";
-    const playwright_enabled={% if playwright_enabled %} true {% else %} false {% endif %};
+    // const playwright_enabled={% if playwright_enabled %} true {% else %} false {% endif %};
 
-{% if emailprefix %}
-    const email_notification_prefix=JSON.parse('{{ emailprefix|tojson }}');
-{% endif %}
+// {% if emailprefix %}
+//     const email_notification_prefix=JSON.parse('{{ emailprefix|tojson }}');
+// {% endif %}
 
     const browser_steps_config=JSON.parse('{{ browser_steps_config|tojson }}');
     const browser_steps_sync_url="{{url_for('browser_steps.browsersteps_ui_update', uuid=uuid)}}";
@@ -30,14 +30,14 @@
     <div class="tabs collapsable">
         <ul>
             <li class="tab" id=""><a href="#general">Geral</a></li>
-            <li class="tab"><a href="#request">Requisição</a></li>
+            <!-- <li class="tab"><a href="#request">Requisição</a></li> -->
             {% if playwright_enabled %}
             <li class="tab"><a id="browsersteps-tab" href="#browser-steps">Browser Steps</a></li>
             {% endif %}
 
             {% if watch['processor'] == 'text_json_diff' %}
-            <li class="tab"><a id="visualselector-tab" href="#visualselector">Visual Filter Selector</a></li>
-            <li class="tab"><a href="#filters-and-triggers">Filters &amp; Triggers</a></li>
+            <!-- <li class="tab"><a id="visualselector-tab" href="#visualselector">Visual Filter Selector</a></li> -->
+            <!-- <li class="tab"><a href="#filters-and-triggers">Filters &amp; Triggers</a></li> -->
             {% endif %}
 
             {% if watch['processor'] == 'restock_diff' %}
@@ -56,9 +56,9 @@
                 <fieldset>
                     <div class="pure-control-group">
                         {{ render_field(form.url, placeholder="https://...", required=true, class="m-d") }}
-                        <span class="pure-form-message-inline">Some sites use JavaScript to create the content, for this you should <a href="https://github.com/dgtlmoon/changedetection.io/wiki/Fetching-pages-with-WebDriver">use the Chrome/WebDriver Fetcher</a></span><br>
-                        <span class="pure-form-message-inline">You can use variables in the URL, perfect for inserting the current date and other logic, <a href="https://github.com/dgtlmoon/changedetection.io/wiki/Handling-variables-in-the-watched-URL">help and examples here</a></span><br>
-                        <span class="pure-form-message-inline">
+                        <!-- <span class="pure-form-message-inline">Some sites use JavaScript to create the content, for this you should <a href="https://github.com/dgtlmoon/changedetection.io/wiki/Fetching-pages-with-WebDriver">use the Chrome/WebDriver Fetcher</a></span><br> -->
+                        <!-- <span class="pure-form-message-inline">You can use variables in the URL, perfect for inserting the current date and other logic, <a href="https://github.com/dgtlmoon/changedetection.io/wiki/Handling-variables-in-the-watched-URL">help and examples here</a></span><br> -->
+                        <!-- <span class="pure-form-message-inline">
                         {% if watch['processor'] == 'text_json_diff' %}
                             Current mode: <strong>Webpage Text/HTML, JSON and PDF changes.</strong><br>
                           <a href="{{url_for('edit_page', uuid=uuid)}}?switch_processor=restock_diff" class="pure-button button-xsmall">Switch to re-stock detection mode.</a>
@@ -66,7 +66,7 @@
                         Current mode: <strong>Re-stock detection.</strong><br>
                           <a href="{{url_for('edit_page', uuid=uuid)}}?switch_processor=text_json_diff" class="pure-button button-xsmall">Switch to Webpage Text/HTML, JSON and PDF changes mode.</a>
                         {% endif %}
-                        </span>
+                        </span> -->
 
                     </div>
                     <div class="pure-control-group">
@@ -74,13 +74,17 @@
                     </div>
                     <div class="pure-control-group">
                         {{ render_field(form.tag) }}
-                        <span class="pure-form-message-inline">Organisational tag/group name used in the main listing page</span>
+                        <span class="pure-form-message-inline">
+                            Tag/nome do grupo usado na página principal
+                        </span>
                     </div>
                     <div class="pure-control-group">
                         {{ render_field(form.time_between_check, class="time-check-widget") }}
                         {% if has_empty_checktime %}
-                        <span class="pure-form-message-inline">Currently using the <a
-                                href="{{ url_for('settings_page', uuid=uuid) }}">default global settings</a>, change to another value if you want to be specific.</span>
+                        <span class="pure-form-message-inline">Atualmente usando a 
+                            <a href="{{ url_for('settings_page', uuid=uuid) }}">configuração global</a>, 
+                            modifique para outro valor específico.
+                        </span>
                         {% else %}
                         <span class="pure-form-message-inline">Set to blank to use the <a
                                 href="{{ url_for('settings_page', uuid=uuid) }}">default global settings</a>.</span>
@@ -195,7 +199,7 @@ User-Agent: wonderbra 1.0") }}
                                 </div>
                             </div>
                             <div id="browser-steps-fieldlist" style="padding-left: 1em;  width: 350px; font-size: 80%;" >
-                                <span id="browserless-seconds-remaining">Loading</span> <span style="font-size: 80%;"> (<a target=_new href="https://github.com/dgtlmoon/changedetection.io/pull/478/files#diff-1a79d924d1840c485238e66772391268a89c95b781d69091384cf1ea1ac146c9R4">?</a>) </span>
+                                <span id="browserless-seconds-remaining">Carregando...</span> <span style="font-size: 80%;"> (<a target=_new href="https://github.com/dgtlmoon/changedetection.io/pull/478/files#diff-1a79d924d1840c485238e66772391268a89c95b781d69091384cf1ea1ac146c9R4">?</a>) </span>
                                 {{ render_field(form.browser_steps) }}
                             </div>
                         </div>
@@ -221,10 +225,13 @@ User-Agent: wonderbra 1.0") }}
                         {% if has_default_notification_urls %}
                         <div class="inline-warning">
                             <img class="inline-warning-icon" src="{{url_for('static_content', group='images', filename='notice.svg')}}" alt="Look out!" title="Lookout!"/>
-                            There are <a href="{{ url_for('settings_page')}}#notifications">system-wide notification URLs enabled</a>, this form will override notification settings for this watch only &dash; an empty Notification URL list here will still send notifications.
-                        </div>
+                            Existem <a href="{{ url_for('settings_page')}}#notifications">configurações globais de notificação</a>, este formulário irá modificar as configurações apenas para esse observador &dash; se deixar em branco, as notificações serão enviadas normalmente.
+                            <b>
+                                Na dúvida, utilizar apenas as configurações globais.
+                            </b>
+                            </div>
                         {% endif %}
-                        <a href="#notifications" id="notification-setting-reset-to-default" class="pure-button button-xsmall" style="right: 20px; top: 20px; position: absolute; background-color: #5f42dd; border-radius: 4px; font-size: 70%; color: #fff">Use system defaults</a>
+                        <a href="#notifications" id="notification-setting-reset-to-default" class="pure-button button-xsmall" style="right: 20px; top: 20px; position: absolute; background-color: #5f42dd; border-radius: 4px; font-size: 70%; color: #fff">Usar configurações globais</a>
 
                         {{ render_common_settings_form(form, emailprefix, settings_application) }}
                     </div>
@@ -427,11 +434,11 @@ Unavailable") }}
                 <div class="pure-control-group">
                     {{ render_button(form.save_button) }}
                     <a href="{{url_for('form_delete', uuid=uuid)}}"
-                       class="pure-button button-small button-error ">Delete</a>
+                       class="pure-button button-small button-error ">Deletar</a>
                     <a href="{{url_for('clear_watch_history', uuid=uuid)}}"
-                       class="pure-button button-small button-error ">Clear History</a>
+                       class="pure-button button-small button-error ">Limpar o histórico</a>
                     <a href="{{url_for('form_clone', uuid=uuid)}}"
-                       class="pure-button button-small ">Create Copy</a>
+                       class="pure-button button-small ">Criar uma cópia</a>
                 </div>
             </div>
         </form>

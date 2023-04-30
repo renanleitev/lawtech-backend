@@ -708,10 +708,10 @@ footer {
       vertical-align: middle; }
     .watch-table .last-checked::before {
       color: var(--color-last-checked);
-      content: "Last Checked "; }
+      content: "Última checagem "; }
     .watch-table .last-changed::before {
       color: var(--color-last-checked);
-      content: "Last Changed "; }
+      content: "Última atualização "; }
     .watch-table td.inline {
       display: inline-block; }
     .watch-table thead tr {

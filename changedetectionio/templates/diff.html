@@ -10,7 +10,7 @@
 <script type="text/javascript" src="{{url_for('static_content', group='js', filename='diff-overview.js')}}" defer></script>
 
 <div id="settings">
-    <h1>Differences</h1>
+    <h1>Diferenças</h1>
     <form class="pure-form " action="" method="GET">
         <fieldset>
 
@@ -34,7 +34,7 @@
                 </option>
                 {% endfor %}
             </select>
-            <button type="submit" class="pure-button pure-button-primary">Go</button>
+            <button type="submit" class="pure-button pure-button-primary">Ir</button>
             {% endif %}
         </fieldset>
     </form>
@@ -48,7 +48,7 @@
 </div>
 
 <div id="diff-jump">
-    <a onclick="next_diff();">Pular</a>
+    <a onclick="next_diff();">Descer</a>
 </div>
 
 <script type="text/javascript" src="{{url_for('static_content', group='js', filename='tabs.js')}}" defer></script>
@@ -56,27 +56,27 @@
     <ul>
         {% if last_error_text %}<li class="tab" id="error-text-tab"><a href="#error-text">Error Text</a></li> {% endif %}
         {% if last_error_screenshot %}<li class="tab" id="error-screenshot-tab"><a href="#error-screenshot">Error Screenshot</a></li> {% endif %}
-        <li class="tab" id=""><a href="#text">Text</a></li>
-        <li class="tab" id="screenshot-tab"><a href="#screenshot">Screenshot</a></li>
-        <li class="tab" id="extract-tab"><a href="#extract">Extract Data</a></li>
+        <li class="tab" id=""><a href="#text">Texto</a></li>
+        <!-- <li class="tab" id="screenshot-tab"><a href="#screenshot">Screenshot</a></li> -->
+        <!-- <li class="tab" id="extract-tab"><a href="#extract">Extract Data</a></li> -->
     </ul>
 </div>
 
 <div id="diff-ui">
     <div class="tab-pane-inner" id="error-text">
-        <div class="snapshot-age error">{{watch_a.error_text_ctime|format_seconds_ago}} seconds ago</div>
+        <div class="snapshot-age error">{{watch_a.error_text_ctime|format_seconds_ago}} segundos atrás</div>
         <pre>
             {{ last_error_text }}
         </pre>
     </div>
 
     <div class="tab-pane-inner" id="error-screenshot">
-        <div class="snapshot-age error">{{watch_a.snapshot_error_screenshot_ctime|format_seconds_ago}} seconds ago</div>
+        <div class="snapshot-age error">{{watch_a.snapshot_error_screenshot_ctime|format_seconds_ago}} segundos atrás</div>
         <img id="error-screenshot-img"  style="max-width: 80%" alt="Current error-ing screenshot from most recent request"/>
     </div>
 
      <div class="tab-pane-inner" id="text">
-         <div class="tip">Pro-tip: Use <strong>show current snapshot</strong> tab to visualise what will be ignored.</div>
+         <!-- <div class="tip">Pro-tip: Use <strong>show current snapshot</strong> tab to visualise what will be ignored.</div> -->
 
          {% if password_enabled_and_share_is_off %}
            <div class="tip">Pro-tip: You can enable <strong>"share access when password is enabled"</strong> from settings</div>
@@ -96,7 +96,7 @@
              </tr>
              </tbody>
          </table>
-         Diff algorithm from the amazing <a href="https://github.com/kpdecker/jsdiff">github.com/kpdecker/jsdiff</a>
+         <!-- Diff algorithm from the amazing <a href="https://github.com/kpdecker/jsdiff">github.com/kpdecker/jsdiff</a> -->
      </div>
      <div class="tab-pane-inner" id="screenshot">
          <div class="tip">

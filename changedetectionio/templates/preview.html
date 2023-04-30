@@ -23,14 +23,14 @@
 
 <div id="diff-ui">
     <div class="tab-pane-inner" id="error-text">
-        <div class="snapshot-age error">{{watch.error_text_ctime|format_seconds_ago}} seconds ago</div>
+        <div class="snapshot-age error">{{watch.error_text_ctime|format_seconds_ago}} segundos atrás</div>
         <pre>
             {{ last_error_text }}
         </pre>
     </div>
 
     <div class="tab-pane-inner" id="error-screenshot">
-        <div class="snapshot-age error">{{watch.snapshot_error_screenshot_ctime|format_seconds_ago}} seconds ago</div>
+        <div class="snapshot-age error">{{watch.snapshot_error_screenshot_ctime|format_seconds_ago}} segundos atrás</div>
         <img id="error-screenshot-img"  style="max-width: 80%" alt="Current erroring screenshot from most recent request"/>
     </div>
 

@@ -91,11 +91,11 @@ class SaltyPasswordField(StringField):
             self.data = False
 
 class TimeBetweenCheckForm(Form):
-    weeks = IntegerField('Weeks', validators=[validators.Optional(), validators.NumberRange(min=0, message="Should contain zero or more seconds")])
-    days = IntegerField('Days', validators=[validators.Optional(), validators.NumberRange(min=0, message="Should contain zero or more seconds")])
-    hours = IntegerField('Hours', validators=[validators.Optional(), validators.NumberRange(min=0, message="Should contain zero or more seconds")])
-    minutes = IntegerField('Minutes', validators=[validators.Optional(), validators.NumberRange(min=0, message="Should contain zero or more seconds")])
-    seconds = IntegerField('Seconds', validators=[validators.Optional(), validators.NumberRange(min=0, message="Should contain zero or more seconds")])
+    weeks = IntegerField('Semanas', validators=[validators.Optional(), validators.NumberRange(min=0, message="Should contain zero or more seconds")])
+    days = IntegerField('Dias', validators=[validators.Optional(), validators.NumberRange(min=0, message="Should contain zero or more seconds")])
+    hours = IntegerField('Horas', validators=[validators.Optional(), validators.NumberRange(min=0, message="Should contain zero or more seconds")])
+    minutes = IntegerField('Minutos', validators=[validators.Optional(), validators.NumberRange(min=0, message="Should contain zero or more seconds")])
+    seconds = IntegerField('Segundos', validators=[validators.Optional(), validators.NumberRange(min=0, message="Should contain zero or more seconds")])
     # @todo add total seconds minimum validatior = minimum_seconds_recheck_time
 
 # Separated by  key:value
@@ -347,20 +347,20 @@ class quickWatchForm(Form):
     from . import processors
 
     url = fields.URLField('URL', validators=[validateURL()])
-    tag = StringField('Group tag', [validators.Optional()])
-    watch_submit_button = SubmitField('Watch', render_kw={"class": "pure-button pure-button-primary"})
+    tag = StringField('Tag', [validators.Optional()])
+    watch_submit_button = SubmitField('Observar', render_kw={"class": "pure-button pure-button-primary"})
     processor = RadioField(u'Processor', choices=processors.available_processors(), default="text_json_diff")
-    edit_and_watch_submit_button = SubmitField('Edit > Watch', render_kw={"class": "pure-button pure-button-primary"})
+    edit_and_watch_submit_button = SubmitField('Editar > Observar', render_kw={"class": "pure-button pure-button-primary"})
 
 
 # Common to a single watch and the global settings
 class commonSettingsForm(Form):
-    notification_urls = StringListField('Notification URL List', validators=[validators.Optional(), ValidateAppRiseServers()])
-    notification_title = StringField('Notification Title', default='ChangeDetection.io Notification - {{ watch_url }}', validators=[validators.Optional(), ValidateJinja2Template()])
-    notification_body = TextAreaField('Notification Body', default='{{ watch_url }} had a change.', validators=[validators.Optional(), ValidateJinja2Template()])
-    notification_format = SelectField('Notification format', choices=valid_notification_formats.keys())
+    notification_urls = StringListField('Lista de Endereços para enviar notificações', validators=[validators.Optional(), ValidateAppRiseServers()])
+    notification_title = StringField('Título da Notificação', default='Law&Tech Notificação - {{ watch_url }}', validators=[validators.Optional(), ValidateJinja2Template()])
+    notification_body = TextAreaField('Estrutura da Notificação', default='{{ watch_url }} foi atualizado.', validators=[validators.Optional(), ValidateJinja2Template()])
+    notification_format = SelectField('Formato da Notificação', choices=valid_notification_formats.keys())
     fetch_backend = RadioField(u'Fetch Method', choices=content_fetcher.available_fetchers(), validators=[ValidateContentFetcherIsReady()])
-    extract_title_as_title = BooleanField('Extract <title> from document and use as watch title', default=False)
+    extract_title_as_title = BooleanField('Extraia o título da página e use como título da notificação', default=False)
     webdriver_delay = IntegerField('Wait seconds before extracting text', validators=[validators.Optional(), validators.NumberRange(min=1,
                                                                                                                                     message="Should contain one or more seconds")])
 class importForm(Form):
@@ -420,7 +420,7 @@ class watchForm(commonSettingsForm):
     filter_failure_notification_send = BooleanField(
         'Send a notification when the filter can no longer be found on the page', default=False)
 
-    notification_muted = BooleanField('Notifications Muted / Off', default=False)
+    notification_muted = BooleanField('Notificações Desligadas', default=False)
     notification_screenshot = BooleanField('Attach screenshot to notification (where possible)', default=False)
 
     def validate(self, **kwargs):

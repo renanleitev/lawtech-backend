@@ -22,9 +22,6 @@ class Importer():
 
 
 class import_url_list(Importer):
-    """
-    Imports a list, can be in <code>https://example.com tag1, tag2, last tag</code> format
-    """
     def run(self,
             data,
             flash,
@@ -37,7 +34,7 @@ class import_url_list(Importer):
         now = time.time()
 
         if (len(urls) > 5000):
-            flash("Importing 5,000 of the first URLs from your list, the rest can be imported again.")
+            flash("Importando 5.000 das primeiras URLs de sua lista, o restante pode ser importado novamente.")
 
         for url in urls:
             url = url.strip()
