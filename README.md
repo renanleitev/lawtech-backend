@@ -6,6 +6,22 @@ Fork do projeto [changedetection.io](https://github.com/dgtlmoon/changedetection
 
 # Instalação
 
+## Linux
+
+Instale as dependências
+
+   pip install -r requirements.txt
+
+Crie um diretório para armazenar os dados
+
+   mkdir data
+
+Rode o changedetection.py, especificando o diretório criado para armazenar os dados
+
+   python3 changetection.py -d {caminho-absoluto}/data
+
+Então acesse http://127.0.0.1:5000 para visualizar a interface.
+
 ## Docker
 
 Com o Docker Composer, basta clonar esse repositório pelo git e executar o comando:

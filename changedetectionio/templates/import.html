@@ -16,14 +16,16 @@
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
             <div class="tab-pane-inner" id="url-list">
                     <legend>
-                        Enter one URL per line, and optionally add tags for each URL after a space, delineated by comma
-                        (,):
+                        Digite uma URL por linha
                         <br>
-                        <code>https://example.com tag1, tag2, last tag</code>
+                        <code>
+                            https://example1.com <br>
+                            https://example2.com
+                        </code>
                         <br>
                         URLs which do not pass validation will stay in the textarea.
                     </legend>
-                {{ render_field(form.processor, class="processor") }}
+                <!-- {{ render_field(form.processor, class="processor") }} -->
 
                     <textarea name="urls" class="pure-input-1-2" placeholder="https://"
                               style="width: 100%;
