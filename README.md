@@ -4,6 +4,14 @@ Projeto criado por alunos de graduação da Faculdade Senac Pernambuco, usando H
 
 É um sistema de gerenciamento de processos judiciais eletrônicos, com atualizações sobre as últimas movimentações processuais.
 
+## Primeiros passos
+
+Antes de tudo, é preciso criar uma pasta chamada 'datastore' no diretório atual. Só é preciso fazer uma vez, quando houver clonado este repositório.
+
+A pasta chamada 'datastore' é onde ficarão salvos as URLs armazenadas para checagem de atualizações.
+
+    mkdir datastore
+
 ## Para rodar o servidor JSON (database)
 
 Primeiro, instale o json-server via npm:
@@ -33,3 +41,11 @@ Execute o comando abaixo para rodar o site:
 O site irá rodar na porta 5000, sendo acessível pelo endereço:
 
     http://localhost:5000/
+
+## TODO
+
+1. Criar banco de dados, para armazenar os dados dos usuários
+2. Encriptar a senha dos usuários
+3. Criar um sistema de logout, para o usuário poder sair do sistema
+4. Criar mais páginas sobre o produto
+5. Descrever o passo a passo de utilização do sistema

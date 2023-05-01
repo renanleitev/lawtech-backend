@@ -42,22 +42,37 @@
 </body>
 <script>
     async function login() {
+        // Previnindo que o formulário seja enviado
         event.preventDefault();
+        // Instânciando email e id do usuário, com valores 'undefined' (indefinidos)
         let email;
+        let id;
+        // Fazendo uma requisição para obter todos os usuários
         fetch("http://localhost:3000/users", {method: "GET"})
         .then(resposta => resposta.json())
         .then(usuarios => {
+            // Obtendo o e-mail do usuário
             const userEmail = document.querySelector("#email").value;
+            // Obtendo a senha do usuário
             const userPassword = document.querySelector("#password").value;
             usuarios.map(usuario => {
+                // Se o e-mail e a senha estiverem no banco de dados
                 if ((usuario.email === userEmail) && (usuario.password === userPassword)){
-                        email = userEmail
+                    // O e-mail e id a serem enviados para o Flask
+                    email = userEmail; 
+                    id = usuario.id;
                 }
             })
         })
         .then(() => {
-            if (email !== undefined) {
-                fetch('/create-folder', {method: 'POST', body: email});
+            // Se o e-mail e a senha não forem indefinidos
+            if ((email !== undefined) && (id !== undefined)) {
+                // Fazendo uma requisição para o Flask, para enviar e-mail e usuário
+                fetch('/create-instance', {method: 'POST', body: JSON.stringify({
+                    usuarioEmail: email, 
+                    usuarioId: id
+                })});
+                // Redirecionando para a instância do JusUpdate
                 window.location.href = '/jusupdate';
             }
         })

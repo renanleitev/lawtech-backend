@@ -43,13 +43,15 @@
 </body>
 <script>
     async function cadastro() {
+        // Previnindo que o formulário seja enviado
         event.preventDefault();
+        // Obtendo o nome, email e senha digitadas pelo usuário
         const userData = {
             name: document.querySelector("#name").value,
             email: document.querySelector("#email").value,
             password: document.querySelector("#password").value
         };
-        validation(userData);
+        // Enviando os dados do usuário para o banco de dados
         fetch("http://localhost:3000/users", 
             {
                 method: "POST",
