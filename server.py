@@ -29,7 +29,7 @@ def suporte():
 
 @app.route('/create-folder', methods=['POST'])
 def create_folder():
-    global port 
+    global port
     port = random.randrange(65535)
     data = request.data.decode('UTF-8')
     allDataStored = 'datastore'
@@ -51,5 +51,7 @@ def jusupdate():
     return redirect(f'http://localhost:{port}/')
 
 if __name__ == '__main__':
+  # Usar uma porta específica, apenas se a padrão não funcionar
+  # app.run(host='0.0.0.0', port=4999)
   app.run(debug=True)
   app.static_folder = 'static'
