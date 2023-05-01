@@ -10,7 +10,6 @@ port = 5000
 # Definindo a variável global usuarioId
 usuarioId = 0
 
-
 @app.route('/')
 def index():
   return render_template('index.html')

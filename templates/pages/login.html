@@ -65,8 +65,11 @@
             })
         })
         .then(() => {
-            // Se o e-mail e a senha não forem indefinidos
-            if ((email !== undefined) && (id !== undefined)) {
+            // Se o e-mail e a senha forem válidos
+            if ((email === undefined) || (id === undefined)) {
+                window.alert('E-mail e/ou senha inválidos.');
+            }
+            else if ((email !== undefined) && (id !== undefined)) {
                 // Fazendo uma requisição para o Flask, para enviar e-mail e usuário
                 fetch('/create-instance', {method: 'POST', body: JSON.stringify({
                     usuarioEmail: email, 

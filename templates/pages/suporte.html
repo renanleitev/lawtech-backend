@@ -140,7 +140,7 @@
                 <div class="faq-body">
                     <ol>
                         <li>
-                            Primeiro, crie uma conta no <a href="https://discord.com/">Discord</a>, se já não tiver criado anteriormente. <br>
+                            Primeiro, crie uma conta no <a href="https://discord.com/">Discord</a>, se já não tiver criado anteriormente.
                             Baixe a versão de Desktop para Windows.     
                         </li>
                         <li>
@@ -209,6 +209,111 @@
                         </li>
                         <li>
                             Pronto, o seu discord está configurado!
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <hr class="hr-line">
+            <div>
+                <!-- Pergunta-->
+                <h1 class="faq-page">
+                    Como eu posso enviar notificações para o Telegram?
+                </h1>
+                <!-- Resposta -->
+                <div class="faq-body">
+                    <ol>
+                        <li>
+                            Se ainda não tiver uma conta no Telegram, você precisará criar e se conectar com um telefone. 
+                            O Telegram usa seu número de telefone como credencial para permitir que você entre em sua conta. 
+                            Portanto, baixe e instale o aplicativo via <a href="https://telegram.org/dl/android">Android</a> ou <a href="https://telegram.org/dl/ios">Apple</a>.
+                            Depois de configurar, pode ser um pouco mais fácil usar a <a href="https://telegram.org/dl/webogram">interface Web</a> com um PC, mas fica a critério do usuário.
+                        </li>
+                        <li>
+                            As notificações do Telegram exigem que você <a href="https://api.telegram.org/">crie um bot</a>. Somente depois que isso for feito, você obterá o Token Identifier (ou bot_token).
+                            Para fazer isso você terá que abrir uma comunicação (dentro do Telegram) para o <a href="https://botsfortelegram.com/project/the-bot-father/">BotFather</a>. Ele está disponível para todos os usuários. Comece um diálogo com ele.
+                        </li>
+                        <li>
+                            Em seguida, execute os seguintes passos:
+                            <ol>
+                                <li>
+                                    Digite: /newbot
+                                </li>
+                                <li>
+                                    Responda às perguntas que ele fizer depois de fazer isso.
+                                </li>
+                                <li>
+                                    Ao concluir a etapa 2, você receberá um bot_token semelhante a este: 123456789:alphanumeric_characters.
+                                </li>
+                                <li>
+                                    Digite /start now na mesma caixa de diálogo para habilitar e instanciar seu novo bot.
+                                </li>
+                            </ol> <br>
+                            A boa notícia é que esse processo só precisa ser feito uma vez. 
+                            Depois de obter seu bot_token, guarde-o e não se preocupe mais em ter que repetir esse processo novamente.
+                            É por meio desse bot que o JusUpdate consegue enviar notificações no Telegram para diferentes usuários.
+                        </li>
+                        <li>
+                            Obtenha o seu chat_id do Telegram. <a href="https://www.alphr.com/find-chat-id-telegram/">Mais informações.</a>
+                        </li>
+                        <li>
+                            Caso não consiga obter o chat_id com o método anterior, basta enviar uma mensagem privada para este novo bot que você acabou de criar (acima). 
+                            Ao fazer isso, o JusUpdate é capaz de detectar automaticamente seu {chat_id} da mensagem enviada ao bot. Fazer isso também permite que você simplifique bastante a leitura do URL de notificação:
+                            <code>
+                                tgram://{bot_token}/ 
+                            </code>
+                        </li>
+                        <li>
+                            Caso obtenha o seu chat_id, a sua URL de notificação será:
+                            <code>
+                                tgram://{bot_token}/{chat_id}/
+                            </code>
+                            <br>
+                            Você também pode enviar notificações para vários usuários, utilizando o seguinte formato de URL:
+                            <br>
+                            <code>
+                                tgram://{bot_token}/{chat_id1}/{chat_id2}/{chat_id3}/
+                            </code>
+                            <br>
+                            Sendo:
+                            <ol>
+                                <li>
+                                    bot_token: O token que identifica o bot que você criou por meio do BotFather
+                                </li>
+                                <li>
+                                    chat_id: Identifica os usuários para os quais você deseja que seu bot entregue suas notificações. Você deve especificar pelo menos 1 chat_id. Se você não especificar um chat_id, o script de notificação tentará detectar o chat_id do proprietário do bot (você) e usá-lo. 
+                                </li>
+                            </ol>
+                        </li>
+                        <li>
+                            Volte ao site principal e faça login na sua conta:
+                            <img src="../../static/images/configurar-gmail/configurar-gmail-06.png" alt="">
+                        </li>
+                        <li>
+                            Vá até Configurações:
+                            <img src="../../static/images/configurar-gmail/configurar-gmail-07.png" alt="">
+                        </li>
+                        <li>
+                            Vá até o painel de notificações:
+                            <img src="../../static/images/configurar-gmail/configurar-gmail-08.png" alt="">
+                        </li>
+                        <li>
+                            Insira a URL de notificação criada anteriormente.
+                            Exemplo: <br> 
+                            <code>
+                                tgram://123456789:abcdefg_hijklmnop/12315544/
+                            </code>
+                            <img src="../../static/images/configurar-discord/configurar-discord-11.png" alt="">
+                        </li>
+                        <li>
+                            Faça o teste de notificação para a sua conta. Você deve receber a notificação de teste em instantes.
+                            <img src="../../static/images/configurar-gmail/configurar-gmail-10.png" alt="">
+                        </li>
+                        <li>
+                            Por fim, clique em salvar (save), ao final da página:
+                            <img src="../../static/images/configurar-gmail/configurar-gmail-11.png" alt="">
+                        </li>
+                        <li>
+                            Pronto, o seu Telegram está configurado!
                         </li>
                     </ol>
                 </div>

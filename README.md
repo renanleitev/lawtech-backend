@@ -28,7 +28,21 @@ O servidor irá rodar na porta 3000, sendo acessível pelo endereço:
 
     http://localhost:3000/
 
-Não feche o terminal. Deixe o JSON Server rodando, para poder acessar o banco de dados.
+Caso a porta 3000 esteja ocupada, rodar o servidor na próxima porta disponível (3001, 3002, ...):
+
+    json-server --watch database.json -p 3001
+
+Após, executar o script bash "change-port.sh" e passar os seguintes argumentos:
+
+    ./change-port.sh {nome-do-arquivo} {porta-json-server}
+    
+    Exemplo:
+    
+    ./change-port.sh login.html 3001
+
+Obs: Fazer isso para os arquivos "login.html" e "cadastro.html", localizados em "templates/pages", caso o JSON Server não rode na porta 3000.
+
+Obs: Não feche o terminal. Deixe o JSON Server rodando, para poder acessar o banco de dados.
 
 ## Para rodar o site
 
