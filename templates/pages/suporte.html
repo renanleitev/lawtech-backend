@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suporte</title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/suporte.css') }}">
+</head>
+<body>
+    <header>
+        <h1><a href="/" class="link">Law&Tech</a></h1>
+        <nav>
+          <ul>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a href="suporte.html">Suporte</a></li>
+            <li><a href="./sobre.html">Sobre</a></li>
+          </ul>
+        </nav>
+        <hr>
+      </header>
+    <main>
+        <h1 class="faq-heading">JusUpdate Suporte</h1>
+        <section class="faq-container">
+            <div>
+                <!-- Pergunta-->
+                <h1 class="faq-page">
+                    Por que eu não consigo acessar o JusUpdate?
+                </h1>
+                <!-- Resposta -->
+                <div class="faq-body">
+                    <p>
+                        Existem vários motivos que podem impedir o acesso ao JusUpdate, como problemas de conexão, configuração do navegador, bloqueio de firewall, senha incorreta, entre outros.
+                    </p>
+                </div>
+            </div>
+            <hr class="hr-line">
+            <div>
+                <!-- Pergunta-->
+                <h1 class="faq-page">
+                    Como eu posso verificar se a minha conexão está funcionando?
+                </h1>
+                <!-- Resposta -->
+                <div class="faq-body">
+                    <p>
+                        Você pode testar a sua conexão acessando outros sites na internet ou utilizando ferramentas online como o Speedtest ou o Teste de Velocidade. Se a sua conexão estiver lenta ou instável, tente reiniciar o seu modem ou roteador, ou entre em contato com o seu provedor de internet.
+                    </p>
+                </div>
+            </div>
+            <hr class="hr-line">
+            <div>
+                <!-- Pergunta-->
+                <h1 class="faq-page">
+                    Como eu posso verificar se o meu firewall está bloqueando o acesso ao JusUpdate?
+                </h1>
+                <!-- Resposta -->
+                <div class="faq-body">
+                    <p>
+                        Você pode verificar se o seu firewall está ativado e se ele possui alguma regra que impede o acesso ao sistema web. Você pode tentar desativar temporariamente o seu firewall ou adicionar uma exceção para o endereço do JusUpdate. Lembre-se de reativar o seu firewall após o teste.
+                    </p>
+                </div>
+            </div>
+            <hr class="hr-line">
+            <div>
+                <!-- Pergunta-->
+                <h1 class="faq-page">
+                    Como eu posso recuperar a minha senha do JusUpdate?
+                </h1>
+                <!-- Resposta -->
+                <div class="faq-body">
+                    <p>
+                        Você pode recuperar a sua senha do JusUpdate no link "Esqueci minha senha" na tela de login. Você deverá informar o seu e-mail cadastrado e seguir as instruções enviadas para redefinir a sua senha.
+                    </p>
+                </div>
+            </div>
+            <hr class="hr-line">
+            <div>
+                <!-- Pergunta-->
+                <h1 class="faq-page">
+                    Como eu posso alterar a minha senha do JusUpdate?
+                </h1>
+                <!-- Resposta -->
+                <div class="faq-body">
+                    <p>
+                        Você pode alterar a sua senha do JusUpdate acessando o menu "Minha conta" ou "Configurações" dentro do sistema. Você deverá informar a sua senha atual e a nova senha desejada.
+                    </p>
+                </div>
+            </div>
+            <hr class="hr-line">
+            <div>
+                <!-- Pergunta-->
+                <h1 class="faq-page">
+                    Como eu posso entrar em contato com o suporte do JusUpdate?
+                </h1>
+                <!-- Resposta -->
+                <div class="faq-body">
+                    <p>
+                        Você pode entrar em contato com o suporte do sistema web através dos canais disponíveis, como telefone, e-mail, chat ou formulário online. Você deverá informar o seu nome, e-mail, telefone e o problema que está enfrentando.
+                    </p>
+                </div>
+            </div>
+            <hr class="hr-line">
+            <div>
+                <!-- Pergunta-->
+                <h1 class="faq-page">
+                    O que mais eu posso fazer para resolver o meu problema de acesso ao JusUpdate?
+                </h1>
+                <!-- Resposta -->
+                <div class="faq-body">
+                    <p>
+                        Se nenhuma das soluções anteriores funcionou, você pode tentar acessar o JusUpdate em outro dispositivo ou rede, ou aguardar alguns minutos e tentar novamente. Se o problema persistir, entre em contato com o suporte do JusUpdate e informe os detalhes do seu caso.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <h3>Entre em contato conosco</h3>
+            <ul>
+              <li><a href="https://github.com/renanleitev">Renan Leite Vieira</a></li>
+              <li><a href="https://github.com/i1iadeilton">José Adeilton</a></li>
+              <li><a href="https://github.com/marinhojp">João Pedro Marinho</a></li>
+            </ul>    
+          </footer>
+    </main>
+    <script>
+        const faq = document.getElementsByClassName("faq-page");
+        for (let i = 0; i < faq.length; i++) {
+            faq[i].addEventListener("click", function () {
+                /* Toggle between adding and removing the "active" class,
+                to highlight the button that controls the panel */
+                this.classList.toggle("active");
+                /* Toggle between hiding and showing the active panel */
+                const body = this.nextElementSibling;
+                if (body.style.display === "block") {
+                    body.style.display = "none";
+                } else {
+                    body.style.display = "block";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

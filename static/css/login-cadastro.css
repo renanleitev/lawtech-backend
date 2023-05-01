@@ -1,0 +1,123 @@
+/* Definindo as cores da página */
+:root {
+	--white: #fff;
+	--dark: #333;
+	--light-dark: #666;
+	--gray: #eee;
+	--light-gray: #e4dcdc;
+}  
+/* Configuração geral do estilo */
+body {
+    font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+	color: var(--dark);
+}
+a:hover{
+	color: var(--light-dark);
+}
+/* Estilos para o cabeçalho */
+header {
+	background-color: var(--gray);
+	padding: 20px;
+	text-align: center;
+}
+header > h1 {
+	float: left;
+	margin-top: 0;
+}
+header > hr {
+	margin-top: 60px;
+}
+nav ul {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+  	float: right;
+	margin-top: 10px;
+}
+nav li {
+	margin: 0 10px;
+}
+nav a {
+	font-weight: bold;
+	font-size: 16px;
+}
+/* Estilos para o rodapé */
+footer {
+	background-color: var(--dark);
+	color: var(--white);
+	padding: 40px;
+	text-align: center;
+}
+footer > ul {
+	display: flex;
+	justify-content: center;
+}
+footer > ul > li {
+	margin-left: 10px;
+}
+footer > ul > li > a {
+	color: var(--white);
+}
+footer h3 {
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+/* Estilos para o formulário */
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--light-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form-box{
+    width: 300px;
+    background-color: var(--white);
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border-top: 10px solid var(--dark);
+}
+.form-box .form-input{
+    border: none;
+    background: #eee;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    font-size: large;
+    margin-bottom: 10px;
+}
+.form-box .form-btn{
+    border: none;
+    background: var(--dark);
+    width: 100%;
+    height: 50px;
+    font-size: large;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+.form-btn:hover{
+    background-color: var(--light-dark);
+    color: var(--white);
+    cursor: pointer;
+}
+/* Estilos para mobile */
+@media screen and (max-width: 340px){
+    .form-box{
+        width: 100vw;
+        height: 100vw;
+    }
+}

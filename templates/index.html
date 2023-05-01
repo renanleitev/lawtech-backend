@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Law&Tech</title>
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <!-- Removi a classe "um" pois não fazia diferença no código -->
+  <!-- Removi as tags <br> pois dá pra configurar espaço no CSS -->
+  <header>
+    <h1><a href="/" class="link">Law&Tech</a></h1>
+    <nav>
+      <ul>
+        <li><a href="./pages/login.html">Login</a></li>
+        <li><a href="./pages/cadastro.html">Cadastro</a></li>
+        <li><a href="./pages/suporte.html">Suporte</a></li>
+        <li><a href="./pages/sobre.html">Sobre</a></li>
+      </ul>
+    </nav>
+    <hr>
+    <div>
+      <!-- Coloquei o nome do sistema como "JusUpdate" -->
+      <!-- Pode substituir o nome por qualquer outro -->
+      <h1>
+        JusUpdate
+      </h1>
+      <h2>Acompanhe todos os processos em uma só uma plataforma.</h2>
+      <p>Nós te ajudamos a não perder nenhum prazo.</p>
+      <button class="button">Saiba mais</button>
+    </div>
+  </header>
+  <!-- Substitui o nome da classe para "sobre" -->
+  <section class="sobre">
+    <h2>Sobre a Law&Tech</h2>
+    <p>
+      Startup criada por alunos de graduação da Faculdade Senac Pernambuco. 
+      Damos suporte a escritórios de advocacia ou advogados autônomos.
+    </p>
+    <a href="./pages/sobre.html" class="button">Saiba mais</a>
+  </section>
+  <!-- Substitui o nome da classe para "solucoes" -->
+  <section class="solucoes">
+    <h2>Sobre o JusUpdate</h2>
+    <ul>
+      <li>
+        <h3>Prazos</h3> 
+        <p>
+          Gerenciamento de prazos com notificações por email e WhatsApp para profissionais do setor jurídico.
+        </p>
+        <button class="button">Saiba mais</button>
+      </li>
+      <li>
+        <h3>Atualizações</h3>
+        <p>
+          Gerenciamento de processos judiciais eletrônicos, com atualizações sobre as últimas movimentações.
+        </p>
+        <button class="button">Saiba mais</button>
+      </li>
+    </ul>
+  </section>
+  <!-- Coloquei 03 depoimentos fictícios -->
+  <section class="slideshow-container">
+    <h2>Depoimentos</h2>
+    <ul>
+      <li class="mySlides fade">
+        <div class="depoimento">
+          <i>
+            Com o JusUpdate, consigo calcular os prazos dos meus processos e receber as notificações por e-mail. Assim, eu não perco nenhum prazo e consigo planejar melhor as minhas atividades. O JusUpdate é muito fácil de usar e me ajuda a economizar tempo e dinheiro.
+          </i>
+        </div>
+        <p>João, advogado trabalhista</p>
+      </li>
+      <li class="mySlides fade">
+        <div class="depoimento">
+          <i>
+            Eu uso o JusUpdate para fazer o controle dos meus processos e prazos. O JusUpdate me informa sobre todas as movimentações dos meus processos. O JusUpdate é um software jurídico completo e moderno que me dá mais agilidade e segurança na minha rotina.
+          </i>
+        </div>
+        <p>Maria, advogada cível</p>
+      </li>
+      <li class="mySlides fade">
+        <div class="depoimento">
+          <i>
+            O JusUpdate me permite visualizar as atualizações processuais e me alerta sobre os prazos que eu tenho que cumprir. O JusUpdate é um software jurídico que me dá mais qualidade e produtividade na minha advocacia.
+          </i>
+        </div>
+        <p>Pedro, advogado criminalista</p>
+      </li>
+    </ul>
+    <div style="text-align:center">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div> 
+  </section>
+  <footer>
+    <h3>Entre em contato conosco</h3>
+    <ul>
+      <li><a href="https://github.com/renanleitev">Renan Leite Vieira</a></li>
+      <li><a href="https://github.com/i1iadeilton">José Adeilton</a></li>
+      <li><a href="https://github.com/marinhojp">João Pedro Marinho</a></li>
+    </ul>    
+  </footer>
+</body>
+<script>
+  // Função slide (automático)
+  let slideIndex = 0;
+  let temporizador = 10000;
+  showSlides();
+  function showSlides() {
+      const slides = document.getElementsByClassName("mySlides");
+      const dots = document.getElementsByClassName("dot");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+      setTimeout(showSlides, temporizador); 
+  }
+</script>
+</html>

@@ -1,0 +1,210 @@
+/* Definindo as cores da página */
+:root {
+	--white: #fff;
+	--dark: #333;
+	--light-dark: #666;
+	--gray: #eee;
+	--light-gray: #e4dcdc;
+	--dark-gray: rgb(173, 172, 172);
+}  
+/* Configuração geral do estilo */
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+	color: var(--dark);
+}
+a:hover{
+	color: var(--light-dark);
+}
+button {
+	background-color: var(--dark);
+	color: var(--white);
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.button:hover{
+	background-color: var(--dark-gray);
+	color: var(--white);
+}
+/* Estilos para o cabeçalho */
+header {
+	background-color: var(--gray);
+	padding: 20px;
+	text-align: center;
+}
+header > h1 {
+	float: left;
+	margin-top: 0;
+}
+header > hr {
+	margin-top: 60px;
+}
+nav ul {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+  	float: right;
+	margin-top: 10px;
+}
+nav li {
+	margin: 0 10px;
+}
+nav a {
+	font-weight: bold;
+	font-size: 16px;
+}
+/* Estilos para o rodapé */
+footer {
+	background-color: var(--dark);
+	color: var(--white);
+	padding: 40px;
+	text-align: center;
+}
+footer > ul {
+	display: flex;
+	justify-content: center;
+}
+footer > ul > li {
+	margin-left: 10px;
+}
+footer > ul > li > a {
+	color: var(--white);
+}
+footer h3 {
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+/* Estilos para as seções de conteúdo */
+section {
+	padding: 40px;
+	text-align: center;
+	background-color: var(--white);
+}
+section h2 {
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+section p {
+	font-size: 18px;
+	color: var(--light-dark);
+	margin-bottom: 20px;
+}
+
+section ul {
+	display: flex;
+	max-width: 1000px;
+	margin: auto;
+}
+section a {
+	background-color: var(--dark);
+	color: var(--white);
+	padding: 10px 20px;
+	border-radius: 4px;
+}
+/* Estilos para formulário */
+form label {
+	display: block;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+form input, form textarea {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 20px;
+	border-radius: 4px;
+	border: none;
+}
+form input[type="submit"] {
+	background-color: var(--gray);
+	color: var(--dark);
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+form input[type="submit"]:hover {
+	background-color: var(--dark);
+	color: var(--white);
+}
+/* Seção sobre a empresa */
+.sobre p{
+	white-space: pre-line;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+/* Seção sobre soluções */
+.solucoes button{
+    background-color: var(--light-gray);
+	color: var(--dark);
+    margin: auto;
+	display: block;
+	padding: 5px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.solucoes li{
+  margin: 0 10px;
+  border: 1px solid var(--light-dark);
+  padding: 20px;
+  width: 400px;
+  text-align: justify;  
+}
+.solucoes li h3{
+    margin-bottom: 17px;   
+}
+.solucoes h3 {
+	text-align: center;
+}
+.solucoes ul li p {
+	text-align: center;
+	color: var(--dark);
+}
+/* Seção sobre depoimentos */
+.depoimento {
+	max-width: 700px;
+}
+.depoimento i {
+	text-align: center;
+}
+/* Slides automáticos */
+.slideshow-container {
+	max-width: 1000px;
+	position: relative;
+	margin: auto;
+}
+/* Hide the images by default */
+.mySlides {
+	display: none;
+	margin: auto;
+}
+/* The dots/bullets/indicators */
+.dot {
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: var(--light-dark);
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+}
+.active {
+	background-color: var(--dark);
+}
+/* Fading animation */
+.fade {
+	animation-name: fade;
+	animation-duration: 1.5s;
+}

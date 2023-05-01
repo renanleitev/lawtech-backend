@@ -1,0 +1,143 @@
+/* Definindo as cores da página */
+:root{
+	--white: #fff;
+	--dark: #333;
+	--light-dark: #666;
+	--gray: #eee;
+	--light-gray: #e4dcdc;
+	--dark-gray: rgb(173, 172, 172);
+}
+/* Configuração geral do estilo */
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+	color: var(--dark);
+}
+a:hover{
+	color: var(--light-dark);
+}
+button {
+	background-color: var(--dark);
+	color: var(--white);
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.button:hover{
+	background-color: var(--dark-gray);
+	color: var(--white);
+}
+/* Estilos para o rodapé */
+footer {
+	background-color: var(--dark);
+	color: var(--white);
+	padding: 40px;
+	text-align: center;
+}
+footer > ul {
+	display: flex;
+	justify-content: center;
+}
+footer > ul > li {
+	margin-left: 10px;
+}
+footer > ul > li > a {
+	color: var(--white);
+}
+footer h3 {
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+/* Estilos para o cabeçalho */
+header {
+	background-color: var(--gray);
+	padding: 20px;
+	text-align: center;
+}
+header > h1 {
+	float: left;
+	margin-top: 0;
+}
+header > hr {
+	margin-top: 60px;
+}
+nav ul {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+  	float: right;
+	margin-top: 10px;
+}
+nav li {
+	margin: 0 10px;
+}
+nav a {
+	font-weight: bold;
+	font-size: 16px;
+}
+/* Estilos para o FAQ */
+.faq-heading{
+    border-bottom: var(--light-dark);
+    padding: 20px 60px;
+	text-align: center;
+}
+.faq-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.hr-line{
+    width: 60%;
+    margin: auto;  
+}
+/* Estilize os botões usados ​​para abrir e fechar o corpo do FAQ */
+.faq-page {
+    color: var(--light-dark);
+    cursor: pointer;
+    padding: 30px 20px;
+    width: 60%;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    margin: auto;
+}
+.faq-body{
+    margin: auto;
+    width: 50%; 
+    padding: auto;
+}
+/* Adicione uma cor de fundo ao botão se for clicado (adicione a classe .active com JS), e quando você passar o mouse sobre ele (hover) */
+.active,
+.faq-page:hover {
+    background-color: var(--gray);
+}
+/* Estilize o painel da página de perguntas frequentes. Nota: oculto por padrão */
+.faq-body {
+    padding: 0 18px;
+    background-color: var(--white);
+    display: none;
+    overflow: hidden;
+}
+.faq-page:after {
+    /* Código unicode para o caractere mais (+) */
+    content: '\02795';
+    font-size: 13px;
+    color: var(--light-dark);
+    float: right;
+    margin-left: 5px;
+}
+.active:after {
+    /* Código unicode para o caractere menos (-) */
+    content: "\2796";
+}

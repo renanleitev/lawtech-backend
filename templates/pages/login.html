@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Law&Tech | Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login-cadastro.css') }}">
+</head>
+<body>
+    <header>
+        <h1><a href="/" class="link">Law&Tech</a></h1>
+        <nav>
+          <ul>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a href="suporte.html">Suporte</a></li>
+            <li><a href="./sobre.html">Sobre</a></li>
+          </ul>
+        </nav>
+        <hr>
+    </header>
+    <div class="container">
+        <div class="form-box">
+            <form action="" method="post">
+                <h1>Login</h1>
+                <input type="email" name="email" placeholder="E-mail" class="form-input" id="email" required>
+                <input type="password" name="password" placeholder="Senha" class="form-input" id="password" required>
+                <input type="submit" name="Entrar" class="form-btn" onclick="login()">
+                Não é cadastrado? <a href="cadastro.html">Crie uma conta</a>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <h3>Entre em contato conosco</h3>
+        <ul>
+          <li><a href="https://github.com/renanleitev">Renan Leite Vieira</a></li>
+          <li><a href="https://github.com/i1iadeilton">José Adeilton</a></li>
+          <li><a href="https://github.com/marinhojp">João Pedro Marinho</a></li>
+        </ul>    
+    </footer>
+</body>
+<script>
+    async function login() {
+        event.preventDefault();
+        let email;
+        fetch("http://localhost:3000/users", {method: "GET"})
+        .then(resposta => resposta.json())
+        .then(usuarios => {
+            const userEmail = document.querySelector("#email").value;
+            const userPassword = document.querySelector("#password").value;
+            usuarios.map(usuario => {
+                if ((usuario.email === userEmail) && (usuario.password === userPassword)){
+                        email = userEmail
+                }
+            })
+        })
+        .then(() => {
+            if (email !== undefined) {
+                fetch('/create-folder', {method: 'POST', body: email});
+                window.location.href = '/jusupdate';
+            }
+        })
+    }
+</script>
+</html>

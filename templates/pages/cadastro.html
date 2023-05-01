@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Law&Tech | Cadastro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login-cadastro.css') }}">
+</head>
+<body>
+    <header>
+        <h1><a href="/" class="link">Law&Tech</a></h1>
+        <nav>
+          <ul>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a href="suporte.html">Suporte</a></li>
+            <li><a href="./sobre.html">Sobre</a></li>
+          </ul>
+        </nav>
+        <hr>
+    </header>
+    <div class="container">
+        <div class="form-box">
+            <form action="" method="post">
+                <h1>Cadastro</h1>
+                <input type="text" name="username" placeholder="Usuário" class="form-input" id="name" required>
+                <input type="email" name="email" placeholder="E-mail" class="form-input" id="email" required>
+                <input type="password" name="password" placeholder="Senha" class="form-input" id="password" required>
+                <input type="submit" name="Cadastrar" class="form-btn" onclick="cadastro()">
+                Já tem uma conta? <a href="login.html">Efetue login</a>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <h3>Entre em contato conosco</h3>
+        <ul>
+          <li><a href="https://github.com/renanleitev">Renan Leite Vieira</a></li>
+          <li><a href="https://github.com/i1iadeilton">José Adeilton</a></li>
+          <li><a href="https://github.com/marinhojp">João Pedro Marinho</a></li>
+        </ul>    
+    </footer>
+</body>
+<script>
+    async function cadastro() {
+        event.preventDefault();
+        const userData = {
+            name: document.querySelector("#name").value,
+            email: document.querySelector("#email").value,
+            password: document.querySelector("#password").value
+        };
+        validation(userData);
+        fetch("http://localhost:3000/users", 
+            {
+                method: "POST",
+                body: JSON.stringify(userData),
+                headers: {"Content-type": "application/json; charset=UTF-8"}
+            }
+        )
+    }
+</script>
+</html>
