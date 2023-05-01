@@ -117,6 +117,14 @@ nav a {
     width: 50%; 
     padding: auto;
 }
+.faq-body img {
+	width: 600px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
 /* Adicione uma cor de fundo ao botão se for clicado (adicione a classe .active com JS), e quando você passar o mouse sobre ele (hover) */
 .active,
 .faq-page:hover {
