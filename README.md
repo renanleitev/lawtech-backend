@@ -1,6 +1,6 @@
-# Front-End Law&Tech
+# Projeto Law&Tech (sistema de notificação JusUpdate)
 
-Projeto criado por alunos de graduação da Faculdade Senac Pernambuco, usando HTML, CSS, Javascript e [JSON Server](https://github.com/typicode/json-server).
+Projeto criado por alunos de graduação da Faculdade Senac Pernambuco, usando HTML, CSS, Javascript, Python (Flask) e [JSON Server](https://github.com/typicode/json-server).
 
 É um sistema de gerenciamento de processos judiciais eletrônicos, com atualizações sobre as últimas movimentações processuais.
 
@@ -30,13 +30,47 @@ O servidor irá rodar na porta 3000, sendo acessível pelo endereço:
 
 ## Para rodar o site
 
+Primeiro, instale o Python e o Pip na sua máquina:
+
+Windows:
+   
+    1. Python: https://www.python.org/downloads/
+    2. Pip: https://pip.pypa.io/en/stable/installation/
+
+Linux:
+
+    1. Python: 
+
+            sudo apt-get install python3
+
+    2. Pip: 
+    
+            sudo apt-get install python3-pip  
+
+
 Baixe as dependências necessárias:
 
-    pip3 install -r requirements.txt
+    Windows:
+
+        pip install -r requirements.txt
+
+    Linux:
+
+        pip3 install -r requirements.txt
 
 Execute o comando abaixo para rodar o site:
 
-    python3 server.py
+    Windows:
+
+        py -u server.py
+
+        OU
+
+        python -u server.py
+
+    Linux:
+
+        python3 server.py
 
 O site irá rodar na porta 5000, sendo acessível pelo endereço:
 
