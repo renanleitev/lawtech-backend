@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, request
 import os 
 from pathlib import Path
+import platform
 
 app = Flask(__name__)
 
@@ -59,7 +60,16 @@ def create_instance():
       print(error)
     try:
       # Iniciando uma instância do JusUpdate
-      os.system(f'python3 changedetection.py -d {path} -p {port+usuarioId}')
+      plataforma = platform.system()
+      # Linux
+      if (plataforma == 'Linux'):
+        os.system(f'python3 changedetection.py -d {path} -p {port+usuarioId}')
+      # Windows
+      elif (plataforma == 'Windows'):
+        try: 
+          os.system(f'py -u changedetection.py -d {path} -p {port+usuarioId}')
+        except Exception as error:
+          os.system(f'python -u changedetection.py -d {path} -p {port+usuarioId}')
     except OSError as error:
       print(error)
     # Redirecionando para a rota '/jusupdate'
