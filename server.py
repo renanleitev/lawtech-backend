@@ -16,6 +16,13 @@ def index():
 
 @app.route('/pages/login.html')
 def login():
+  # Obtendo as variáveis globais
+  global port
+  global usuarioId
+  # Porta padrão do flask
+  port = 5000
+  # Definindo a variável global usuarioId
+  usuarioId = 0
   return render_template('pages/login.html')
 
 @app.route('/pages/cadastro.html')
