@@ -28,9 +28,13 @@ O servidor irá rodar na porta 3000, sendo acessível pelo endereço:
 
     http://localhost:3000/
 
+Não feche o terminal. Deixe o JSON Server rodando, para poder acessar o banco de dados.
+
 ## Para rodar o site
 
-Primeiro, instale o Python e o Pip na sua máquina:
+Primeiro, abra um novo terminal. Deixe o JSON Server rodando, para poder acessar o banco de dados.  
+
+Depois, instale o Python e o Pip na sua máquina:
 
 Windows:
    
@@ -58,7 +62,7 @@ Baixe as dependências necessárias:
 
         pip3 install -r requirements.txt
 
-Execute o comando abaixo para rodar o site:
+Abra um novo terminal e execute o comando abaixo para rodar o site:
 
     Windows:
 
@@ -75,6 +79,8 @@ Execute o comando abaixo para rodar o site:
 O site irá rodar na porta 5000, sendo acessível pelo endereço:
 
     http://localhost:5000/
+
+Obs: É preciso rodar tanto o JSON Server quanto o server.py, caso contrário o projeto não funciona.
 
 ## TODO
 
