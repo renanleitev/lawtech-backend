@@ -46,19 +46,44 @@
         // Previnindo que o formulário seja enviado
         event.preventDefault();
         // Obtendo o nome, email e senha digitadas pelo usuário
+        const usuarioNome = document.querySelector("#name").value;
+        const usuarioEmail = document.querySelector("#email").value;
+        const usuarioSenha = document.querySelector("#password").value;
+        // Definindo uma variável boolean para saber se o usuário está cadastrado ou não
+        let usuarioEstaCadastrado = false;
+        // Definindo o objeto que será passado na requisição
         const userData = {
-            name: document.querySelector("#name").value,
-            email: document.querySelector("#email").value,
-            password: document.querySelector("#password").value
+            name: usuarioNome,
+            email: usuarioEmail,
+            password: usuarioSenha
         };
-        // Enviando os dados do usuário para o banco de dados
-        fetch("http://localhost:3000/users", 
-            {
-                method: "POST",
-                body: JSON.stringify(userData),
-                headers: {"Content-type": "application/json; charset=UTF-8"}
-            }
-        )
+        fetch("http://localhost:3000/users", {method: "GET"})
+            .then(resposta => resposta.json())
+            .then(usuarios => {
+                usuarios.map(usuario => {
+                    if (usuario.email === usuarioEmail) {
+                        window.alert('E-mail já cadastrado no sistema.');
+                        usuarioEstaCadastrado = true;
+                    };
+                })
+            });
+        if (!usuarioEstaCadastrado) {
+            if ((usuario.email !== usuarioEmail)) {
+                // Enviando os dados do usuário para o banco de dados
+                fetch("http://localhost:3000/users", 
+                    {
+                        method: "POST",
+                        body: JSON.stringify(userData),
+                        headers: {"Content-type": "application/json; charset=UTF-8"}
+                    })
+                .then(() => {
+                    window.location.href = '/';
+                    window.alert('Usuário cadastrado com sucesso.');
+                })
+            };
+        }
+
+
     }
 </script>
 </html>

@@ -62,19 +62,10 @@ def create_instance():
         os.system(f'python3 changedetection.py -d {path} -p {port+usuarioId}')
       # Windows
       elif (plataforma == 'Windows'):
-          os.system(f'python -u changedetection.py -d {path} -p {port+usuarioId}')
+        os.system(f'python -u changedetection.py -d {path} -p {port+usuarioId}')
     except OSError as error:
       print(error)
-    # Redirecionando para a rota '/jusupdate'
-    return redirect('/jusupdate')
-
-@app.route('/jusupdate')
-def jusupdate():
-    # Obtendo as variáveis globais
-    global port
-    global usuarioId
-    # Redirecionando para a instância do JusUpdate
-    return redirect(f'http://localhost:{port+usuarioId}/')
+    return 'ok'
 
 if __name__ == '__main__':
   # Usar uma porta específica, apenas se a padrão não funcionar

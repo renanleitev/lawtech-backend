@@ -48,6 +48,10 @@
         // Instânciando email e id do usuário, com valores 'undefined' (indefinidos)
         let email;
         let id;
+        // Definindo a porta padrão
+        const port = 5000;
+        // Verificando se o usuário é válido
+        let userIsValid = false;
         // Fazendo uma requisição para obter todos os usuários
         fetch("http://localhost:3000/users", {method: "GET"})
         .then(resposta => resposta.json())
@@ -62,6 +66,7 @@
                     // O e-mail e id a serem enviados para o Flask
                     email = userEmail; 
                     id = usuario.id;
+                    userIsValid = true;
                 }
             })
         })
@@ -76,9 +81,12 @@
                     usuarioEmail: email, 
                     usuarioId: id
                 })});
-                // Redirecionando para a instância do JusUpdate
-                window.location.href = '/jusupdate';
             }
+        })
+        .then(() => {
+            if (userIsValid) {
+                window.location.href = `http://localhost:${port+Number.parseInt(id)}`;
+            } 
         })
     }
 </script>
