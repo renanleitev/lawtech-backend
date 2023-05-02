@@ -97,6 +97,12 @@ O site irá rodar na porta 5000, sendo acessível pelo endereço:
 
 Obs: É preciso rodar tanto o JSON Server quanto o server.py, caso contrário o projeto não funciona.
 
+## Script para executar o banco de dados e o site (Linux)
+
+Se estiver executando as configurações padrões (JSON Server = 3000 / Flask = 5000), basta executar o script abaixo para rodar o banco de dados e o site:
+
+    ./run-project.sh
+
 ## TODO
 
 1. Criar banco de dados, para armazenar os dados dos usuários
