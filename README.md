@@ -36,7 +36,7 @@ Após, executar o script bash "change-port.sh" e passar os seguintes argumentos:
 
     ./change-port.sh {nome-do-arquivo} {porta-json-server}
     
-    Exemplo:
+Exemplo:
     
     ./change-port.sh login.html 3001
 
@@ -52,41 +52,42 @@ Depois, instale o Python e o Pip na sua máquina:
 
 Windows:
    
-    1. Python: https://www.python.org/downloads/
-    2. Pip: https://pip.pypa.io/en/stable/installation/
+1. Python: 
+
+        https://www.python.org/downloads/
+
+2. Pip: 
+
+        https://pip.pypa.io/en/stable/installation/
 
 Linux:
 
-    1. Python: 
+1. Python: 
 
-            sudo apt-get install python3
+        sudo apt-get install python3
 
-    2. Pip: 
+2. Pip: 
     
-            sudo apt-get install python3-pip  
+        sudo apt-get install python3-pip  
 
 
 Baixe as dependências necessárias:
 
-    Windows:
+1. Windows:
 
         pip install -r requirements.txt
 
-    Linux:
+2. Linux:
 
         pip3 install -r requirements.txt
 
 Abra um novo terminal e execute o comando abaixo para rodar o site:
 
-    Windows:
-
-        py -u server.py
-
-        OU
+1. Windows:
 
         python -u server.py
 
-    Linux:
+2. Linux:
 
         python3 server.py
 

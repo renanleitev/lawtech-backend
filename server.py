@@ -16,18 +16,15 @@ def index():
 
 @app.route('/pages/login.html')
 def login():
-  # Obtendo as variáveis globais
-  global port
-  global usuarioId
-  # Porta padrão do flask
-  port = 5000
-  # Definindo a variável global usuarioId
-  usuarioId = 0
   return render_template('pages/login.html')
 
 @app.route('/pages/cadastro.html')
 def cadastro():
   return render_template('pages/cadastro.html')
+
+@app.route('/pages/redefinir-senha.html')
+def redefinir_senha():
+  return render_template('pages/redefinir-senha.html')
 
 @app.route('/pages/sobre.html')
 def sobre():

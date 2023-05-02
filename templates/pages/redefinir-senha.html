@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Law&Tech | Redefinir Senha</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login-cadastro.css') }}">
+</head>
+<body>
+    <header>
+        <h1><a href="/" class="link">Law&Tech</a></h1>
+        <nav>
+          <ul>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a href="suporte.html">Suporte</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+          </ul>
+        </nav>
+        <hr>
+    </header>
+    <div class="container">
+        <div class="form-box">
+            <form action="" method="post">
+                <h1>Redefinir senha</h1>
+                <input type="email" name="email" placeholder="E-mail" class="form-input" id="email" required>
+                <input type="password" name="password" placeholder="Nova Senha" class="form-input" id="password" required>
+                <input type="password" name="password" placeholder="Repetir Senha" class="form-input" id="repeat-password" required>
+                <input type="submit" name="Cadastrar" class="form-btn" onclick="redefinirSenha()">
+            </form>
+        </div>
+    </div>
+    <footer>
+        <h3>Entre em contato conosco</h3>
+        <ul>
+          <li><a href="https://github.com/renanleitev">Renan Leite Vieira</a></li>
+          <li><a href="https://github.com/i1iadeilton">José Adeilton</a></li>
+          <li><a href="https://github.com/marinhojp">João Pedro Marinho</a></li>
+        </ul>    
+    </footer>
+</body>
+<script>
+    async function redefinirSenha() {
+        // Previnindo que o formulário seja enviado
+        event.preventDefault();
+        // Obtendo o nome, email e senha digitadas pelo usuário
+        const usuarioEmail = document.querySelector("#email").value;
+        const usuarioSenha = document.querySelector("#password").value;
+        const usuarioRepetirSenha = document.querySelector("#repeat-password").value;
+        // Verificando se a senha é válida
+        if (usuarioSenha === usuarioRepetirSenha) {
+            // Fazendo uma requisição para obter todos os usuários
+            fetch("http://localhost:3000/users", {method: "GET"})
+            .then(resposta => resposta.json())
+            .then(usuarios => {
+                usuarios.map(usuario => {
+                    if ((usuario.password === usuarioSenha) || (usuario.password === usuarioRepetirSenha)) {
+                        window.alert('A senha nova não pode ser igual a senha antiga.');
+                    } else if ((usuario.email === usuarioEmail)){
+                        // Enviando os dados do usuário para o banco de dados
+                        fetch(`http://localhost:3000/users/${usuario.id}`, 
+                        {
+                            method: "PUT",
+                            body: JSON.stringify({...usuario, password: usuarioSenha}),
+                            headers: {"Content-type": "application/json; charset=UTF-8"}
+                        });
+                        window.alert('Senha alterada com sucesso. Faça o login novamente.');
+                        // Redirecionando para a página de login
+                        window.location.href = '/pages/login.html';
+                    };
+                })
+            })
+        } else {
+            window.alert('As senhas precisam ser iguais.');
+        }
+    }
+</script>
+</html>
