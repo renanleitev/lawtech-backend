@@ -65,9 +65,6 @@ def create_instance():
         os.system(f'python3 changedetection.py -d {path} -p {port+usuarioId}')
       # Windows
       elif (plataforma == 'Windows'):
-        try: 
-          os.system(f'py -u changedetection.py -d {path} -p {port+usuarioId}')
-        except Exception as error:
           os.system(f'python -u changedetection.py -d {path} -p {port+usuarioId}')
     except OSError as error:
       print(error)

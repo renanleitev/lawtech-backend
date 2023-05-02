@@ -589,7 +589,7 @@ label:hover {
 #diff-jump {
   position: fixed;
   left: 0px;
-  top: 120px;
+  top: 150px;
   background: var(--color-background);
   padding: 10px;
   border-top-right-radius: 5px;

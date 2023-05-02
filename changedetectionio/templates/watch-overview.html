@@ -73,11 +73,11 @@
 
             <tr id="{{ watch.uuid }}"
                 class="{{ loop.cycle('pure-table-odd', 'pure-table-even') }} processor-{{ watch['processor'] }}
-                {% if watch.last_error is defined and watch.last_error != False %}error{% endif %}
-                {% if watch.last_notification_error is defined and watch.last_notification_error != False %}error{% endif %}
-                {% if watch.paused is defined and watch.paused != False %}paused{% endif %}
-                {% if watch.newest_history_key| int > watch.last_viewed and watch.history_n>=2 %}unviewed{% endif %}
-                {% if watch.uuid in queued_uuids %}queued{% endif %}">
+                {% if watch.last_error is defined and watch.last_error != False %}erro{% endif %}
+                {% if watch.last_notification_error is defined and watch.last_notification_error != False %}erro{% endif %}
+                {% if watch.paused is defined and watch.paused != False %}pausado{% endif %}
+                {% if watch.newest_history_key| int > watch.last_viewed and watch.history_n>=2 %}não visualizado{% endif %}
+                {% if watch.uuid in queued_uuids %}na fila{% endif %}">
                 <td class="inline checkbox-uuid" ><input name="uuids"  type="checkbox" value="{{ watch.uuid}} "/> <span>{{ loop.index }}</span></td>
                 <td class="inline watch-controls">
                     {% if not watch.paused %}
