@@ -23,6 +23,7 @@
     <div class="container">
         <h1 class="h1-logout">Você está logado no sistema. Clique no botão abaixo para sair do sistema.</h1>
         <button class="btn-logout" onclick="logout()">Logout</button>
+        <a class="link-sistema">Ou clique aqui para voltar ao JusUpdate.</a>
     </div>
     <footer>
         <h3>Entre em contato conosco</h3>
@@ -37,9 +38,24 @@
     async function logout() {
         const usuarioEstaLogado = 'False';
         // Fazendo uma requisição para o Flask, para saber se o usuário está logado ou não
-        // Depois, redireciona para a página principal
+        // Depois, redireciona para a página principal (usuário fez logout)
         fetch('/user-login', {method: 'POST', body: usuarioEstaLogado})
         .then(window.location.href = '/');
+    }
+    window.onload = async function voltarSistema() {
+        // Fazendo uma requisição para obter o id do usuário
+        fetch("http://localhost:5000/user-id", {method: "GET"})
+        .then(resposta => resposta.json())
+        .then(user => {
+            // Porta padrão do sistema
+            const porta = 5000;
+            // Obtendo o id do usuário
+            const usuarioId = user.id;
+            // Selecionando o link para voltar ao sistema
+            let linkSistema = document.querySelector('.link-sistema');
+            // URL do link
+            linkSistema.href = `http://localhost:${porta+usuarioId}`;
+        });
     }
 </script>
 </html>

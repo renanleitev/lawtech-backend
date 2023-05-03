@@ -59,6 +59,7 @@ def user_login():
   data = request.data.decode('UTF-8')
   # Convertendo data para boolean
   usuarioEstaLogado = str_to_bool(data)
+  # Se o usuário não está logado, seu id passa a ser 0
   if usuarioEstaLogado == False:
     usuarioId = 0
 
@@ -66,7 +67,9 @@ def user_login():
 def user_id():
   # Obtendo as variáveis globais
   global usuarioId
+  # Passando o id do usuário pro front-end
   response = jsonify({'id': usuarioId})
+  # Permitindo requisições entre URLs diferentes
   response.headers.add('Access-Control-Allow-Origin', '*')
   return response
 
