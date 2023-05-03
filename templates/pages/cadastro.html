@@ -65,25 +65,21 @@
                         window.alert('E-mail já cadastrado no sistema.');
                         usuarioEstaCadastrado = true;
                     };
-                })
-            });
+            }
+        )});
         if (!usuarioEstaCadastrado) {
-            if ((usuario.email !== usuarioEmail)) {
-                // Enviando os dados do usuário para o banco de dados
-                fetch("http://localhost:3000/users", 
-                    {
-                        method: "POST",
-                        body: JSON.stringify(userData),
-                        headers: {"Content-type": "application/json; charset=UTF-8"}
-                    })
-                .then(() => {
-                    window.location.href = '/';
-                    window.alert('Usuário cadastrado com sucesso.');
+            // Enviando os dados do usuário para o banco de dados
+            fetch("http://localhost:3000/users", 
+                {
+                    method: "POST",
+                    body: JSON.stringify(userData),
+                    headers: {"Content-type": "application/json; charset=UTF-8"}
                 })
-            };
+            .then(() => {
+                window.location.href = '/';
+                window.alert('Usuário cadastrado com sucesso.');
+            })
         }
-
-
     }
 </script>
 </html>
