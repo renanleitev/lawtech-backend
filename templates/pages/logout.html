@@ -38,8 +38,8 @@
     async function logout() {
         const usuarioEstaLogado = 'False';
         // Fazendo uma requisição para o Flask, para saber se o usuário está logado ou não
-        // Depois, redireciona para a página principal (usuário fez logout)
         fetch('/user-login', {method: 'POST', body: usuarioEstaLogado})
+        // Depois, redireciona para a página principal (usuário fez logout)
         .then(window.location.href = '/');
     }
     window.onload = async function voltarSistema() {

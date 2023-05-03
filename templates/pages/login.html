@@ -66,6 +66,7 @@
                     // O e-mail e id a serem enviados para o Flask
                     email = userEmail; 
                     id = usuario.id;
+                    // Se usuarioEstaLogado, ele recebe o valor 'True'
                     usuarioEstaLogado = 'True';
                 }
             })
@@ -81,10 +82,12 @@
                     usuarioEmail: email, 
                     usuarioId: id
                 })});
+                // Passando o valor de usuarioEstaLogado para o Flask
                 fetch('/user-login', {method: 'POST', body: usuarioEstaLogado});
             }
         })
         .then(() => {
+            // Se usuarioEstaLogado, ele é redirecionado para a porta correta do JusUpdate
             if (usuarioEstaLogado) {
                 window.location.href = `http://localhost:${port+Number.parseInt(id)}`;
             } 

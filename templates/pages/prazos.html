@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Law&Tech | Gerenciamento de Prazos</title>
+  <link href="{{ url_for('static', filename='css/prazos.css') }}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <header>
+    <h1><a href="/" class="link">Law&Tech</a></h1>
+    <nav>
+      <ul>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="suporte.html">Suporte</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+    </nav>
+    <hr>
+  </header>
+
+  <div class="about-section">
+      <div class="parallax img-um">
+        <div class="text-section">
+            <h2>A importância de gerenciar prazos processuais</h2>
+            <h3>
+                Um sistema de gerenciamento de prazos é fundamental para o setor jurídico, pois auxilia na organização e no cumprimento de prazos legais. Com a rapidez e facilidade proporcionada pelos meios digitais, um sistema de gerenciamento que permite cadastro de processos, prazos e partes envolvidas é imprescindível para a advocacia.
+            </h3>
+        </div>
+    </div>
+  </div>
+
+  <div class="about-section">
+      <div class="parallax img-dois">
+        <div class="text-section">
+            <h2>Esteja sempre atualizado, onde estiver</h2>
+            <h3>
+                Para garantir que os prazos não sejam esquecidos, é importante que o sistema ofereça notificações por email e pelo WhatsApp. Esses canais de comunicação são acessíveis e permitem uma comunicação instantânea, garantindo que os advogados fiquem sempre atualizados da sua agenda de compromissos.
+            </h3>
+        </div>
+      </div>
+  </div>
+
+  <div class="about-section">
+    <div class="parallax img-tres">
+        <div class="text-section">
+            <h2>Fácil e prático</h2>
+            <h3>
+                O sistema deve ser fácil de usar e ter uma interface intuitiva. Além disso, ele deve ser seguro e manter a privacidade das informações dos clientes e dos processos. Dessa forma, é possível garantir a confidencialidade dos dados dos clientes e dos casos tratados pelo escritório, mantendo a ética profissional e evitando violações de sigilo.
+            </h3>
+        </div>
+    </div>
+  </div>
+
+  <div class="about-section">
+    <div class="parallax img-quatro">
+        <div class="text-section">
+            <h2>Customizável, do jeito que você precisa</h2>
+            <h3>
+                Além disso, o sistema deve permitir a customização de notificações para que o usuário possa escolher os tipos de alerta e a frequência das notificações. Por exemplo, é possível definir que algumas notificações sejam enviadas com algumas semanas de antecedência ou com apenas um dia de antecedência.
+            </h3>
+        </div>
+    </div>
+  </div>
+  
+  <div class="about-section">
+    <div class="parallax img-cinco">
+        <div class="text-section">
+            <h2>Preço acessível</h2>
+            <h3>
+                Por fim, o sistema deve ser acessível e ter um valor acessível para que seja possível garantir que todas as pequenas e médias empresas tenham condições de adotá-lo. Dessa forma, o gerenciamento de prazos deixará de ser uma tarefa complexa e ficará democratizada, permitindo que os advogados possam se dedicar mais ao conteúdo dos processos e às necessidades do cliente.    
+            </h3>
+        </div>
+    </div>
+  </div>
+  
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+  <footer>
+    <h3>Entre em contato conosco</h3>
+    <ul>
+      <li><a href="https://github.com/renanleitev">Renan Leite Vieira</a></li>
+      <li><a href="https://github.com/i1iadeilton">José Adeilton</a></li>
+      <li><a href="https://github.com/marinhojp">João Pedro Marinho</a></li>
+    </ul>    
+  </footer>
+
+  <script>
+    // Get the button:
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+  </script>
+</body>
+</html>

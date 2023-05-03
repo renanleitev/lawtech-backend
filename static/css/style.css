@@ -157,7 +157,6 @@ form input[type="submit"]:hover {
 }
 .solucoes li{
   margin: 0 10px;
-  border: 1px solid var(--light-dark);
   padding: 20px;
   width: 400px;
   text-align: justify;  
@@ -171,6 +170,13 @@ form input[type="submit"]:hover {
 .solucoes ul li p {
 	text-align: center;
 	color: var(--dark);
+}
+.solucoes ul > li{
+	display: flex;
+	flex-direction: column;
+}
+.solucoes ul > li > a{
+	text-align: center;
 }
 /* Seção sobre depoimentos */
 .depoimento {

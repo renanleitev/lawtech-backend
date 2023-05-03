@@ -1,0 +1,231 @@
+/* Definindo as cores da página */
+:root {
+	--white: #fff;
+	--dark: #333;
+	--light-dark: #666;
+	--gray: #eee;
+	--light-gray: #e4dcdc;
+	--dark-gray: rgb(173, 172, 172);
+}  
+html {
+    box-sizing: border-box;
+}
+/* Configuração geral do estilo */
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+	color: var(--dark);
+}
+.button a {
+	text-decoration: none;
+	color: var(--white);
+}
+a:hover{
+	color: var(--light-dark);
+}
+/* Estilos para o cabeçalho */
+header {
+	background-color: var(--gray);
+	padding: 20px;
+	text-align: center;
+}
+header > h1 {
+	float: left;
+	margin-top: 0;
+}
+header > hr {
+	margin-top: 60px;
+}
+nav ul {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+  	float: right;
+	margin-top: 10px;
+}
+nav li {
+	margin: 0 10px;
+}
+nav a {
+	font-weight: bold;
+	font-size: 16px;
+}
+/* Estilos para o rodapé */
+footer {
+	background-color: var(--dark);
+	color: var(--white);
+	padding: 40px;
+	text-align: center;
+}
+footer > ul {
+	display: flex;
+	justify-content: center;
+}
+footer > ul > li {
+	margin-left: 10px;
+}
+footer > ul > li > a {
+	color: var(--white);
+}
+footer h3 {
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+/* Estilos para o cabeçalho */
+header {
+	background-color: var(--gray);
+	padding: 20px;
+	text-align: center;
+}
+header > h1 {
+	float: left;
+	margin-top: 0;
+}
+header > hr {
+	margin-top: 60px;
+}
+nav ul {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+  	float: right;
+	margin-top: 10px;
+}
+nav li {
+	margin: 0 10px;
+}
+nav a {
+	font-weight: bold;
+	font-size: 16px;
+}
+/* Estilos para o rodapé */
+footer {
+	background-color: var(--dark);
+	color: var(--white);
+	padding: 40px;
+	text-align: center;
+}
+footer > ul {
+	display: flex;
+	justify-content: center;
+}
+footer > ul > li {
+	margin-left: 10px;
+}
+footer > ul > li > a {
+	color: var(--white);
+}
+footer h3 {
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+/* Estilos da página sobre */
+.about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #474e5d;
+    color: white;
+}
+.about-section h3 {
+    width: 600px;
+    margin: auto;
+}
+.about-section p {
+    font-size: 20px;
+    line-height: 50px;
+	max-width: 900px;
+	margin: auto;
+}
+.container {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container img {
+    margin-top: 10px;
+    border-radius: 14px;
+}
+.container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+/* Estilo parallax */
+.parallax {
+  min-height: 800px;
+  background-attachment: fixed;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+/* Estilo do texto da seção */
+.text-section{
+	background-color: #00000093;
+	text-align: center;
+	border-radius: 20px;
+	padding: 20px;
+	line-height: 25px;
+}
+.text-section:hover{
+	background-color: #000000c4;
+}
+/* Imagens da seção */
+.img-um{
+  background-image: url("../images/pagina-prazos/pagina-prazos-01.jpg");
+}
+.img-dois{
+    background-image: url("../images/pagina-prazos/pagina-prazos-02.jpg");
+    background-position: top;
+}
+.img-tres{
+    background-image: url("../images/pagina-prazos/pagina-prazos-03.jpg");
+}
+.img-quatro{
+    background-image: url("../images/pagina-prazos/pagina-prazos-04.jpg");
+	background-position: center;
+}
+.img-cinco{
+    background-image: url("../images/pagina-prazos/pagina-prazos-05.jpg");
+	background-position: center;
+}
+/* Estilo do botão voltar ao topo */
+#myBtn {
+	display: none; /* Hidden by default */
+	position: fixed; /* Fixed/sticky position */
+	bottom: 20px; /* Place the button at the bottom of the page */
+	right: 30px; /* Place the button 30px from the right */
+	z-index: 99; /* Make sure it does not overlap */
+	border: none; /* Remove borders */
+	outline: none; /* Remove outline */
+	background-color: black; /* Set a background color */
+	color: white; /* Text color */
+	cursor: pointer; /* Add a mouse pointer on hover */
+	padding: 15px; /* Some padding */
+	border-radius: 10px; /* Rounded corners */
+	font-size: 18px; /* Increase font size */
+  }
+  
+  #myBtn:hover {
+	background-color: var(--light-dark); /* Add a dark-grey background on hover */
+  }
+/* Estilo para mobile */
+@media screen and (max-width: 650px) {
+    .column {
+      width: 100%;
+      display: block;
+    }
+}

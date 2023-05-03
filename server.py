@@ -42,6 +42,10 @@ def cadastro():
 def redefinir_senha():
   return render_template('pages/redefinir-senha.html')
 
+@app.route('/pages/prazos.html')
+def prazos():
+  return render_template('pages/prazos.html')
+
 @app.route('/pages/sobre.html')
 def sobre():
   return render_template('pages/sobre.html')

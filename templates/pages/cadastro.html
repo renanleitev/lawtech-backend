@@ -67,6 +67,7 @@
                     };
             }
         )});
+        // Se o usuário não está cadastrado, ele é cadastrado no banco de dados
         if (!usuarioEstaCadastrado) {
             // Enviando os dados do usuário para o banco de dados
             fetch("http://localhost:3000/users", 
@@ -76,6 +77,7 @@
                     headers: {"Content-type": "application/json; charset=UTF-8"}
                 })
             .then(() => {
+                // Redirecionando para a página principal
                 window.location.href = '/';
                 window.alert('Usuário cadastrado com sucesso.');
             })

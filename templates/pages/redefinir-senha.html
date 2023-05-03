@@ -55,6 +55,7 @@
             .then(resposta => resposta.json())
             .then(usuarios => {
                 usuarios.map(usuario => {
+                    // Verificando se a senha nova é igual a antiga
                     if ((usuario.password === usuarioSenha) || (usuario.password === usuarioRepetirSenha)) {
                         window.alert('A senha nova não pode ser igual a senha antiga.');
                     } else if ((usuario.email === usuarioEmail)){
