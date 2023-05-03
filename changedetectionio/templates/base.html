@@ -126,16 +126,28 @@
       {% endif %}
       {% block content %}{% endblock %}
     </section>
+    <div id="overlay"></div> 
     <script
       type="text/javascript"
       src="{{url_for('static_content', group='js', filename='toggle-theme.js')}}"
       defer>
     </script>
     <script>
-      async function logout() {
-          // Fazendo uma requisição para o Flask, para enviar e-mail e usuário
-          fetch('/user-login', {method: 'POST', body: usuarioEstaLogado})
-          .then(window.location.href = '/');
+      let usuarioId = 0;
+      window.onload = async function logout() {
+        // Fazendo uma requisição para obter o id do usuário
+        fetch("http://localhost:5000/user-id", {method: "GET"})
+        .then(resposta => resposta.json())
+        .then(user => {
+          usuarioId = user.id;
+          const pathArray = window.location.host.split(':');
+          const port = pathArray[1];
+          if(((port-usuarioId) !== 5000) || (usuarioId === 0)) {
+            window.location.href = "http://localhost:5000";
+          } else {
+            document.getElementById("overlay").style.display = "none";
+          }
+        });
       }
   </script>
   </body>

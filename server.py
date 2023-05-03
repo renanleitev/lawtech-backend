@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, jsonify, request
 import os 
 from pathlib import Path
 import platform
@@ -54,10 +54,21 @@ def suporte():
 def user_login():
   # Obtendo as variáveis globais
   global usuarioEstaLogado
+  global usuarioId
   # Obtendo os dados 
   data = request.data.decode('UTF-8')
   # Convertendo data para boolean
   usuarioEstaLogado = str_to_bool(data)
+  if usuarioEstaLogado == False:
+    usuarioId = 0
+
+@app.route('/user-id', methods=['GET'])
+def user_id():
+  # Obtendo as variáveis globais
+  global usuarioId
+  response = jsonify({'id': usuarioId})
+  response.headers.add('Access-Control-Allow-Origin', '*')
+  return response
 
 @app.route('/create-instance', methods=['POST'])
 def create_instance():
