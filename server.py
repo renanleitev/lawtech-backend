@@ -9,6 +9,16 @@ app = Flask(__name__)
 port = 5000
 # Definindo a variável global usuarioId
 usuarioId = 0
+# Definindo se o usuário já está logado
+usuarioEstaLogado = False
+# Convertendo string 'True'/'False' para boolean
+def str_to_bool(s):
+    if s == 'True':
+         return True
+    elif s == 'False':
+         return False
+    else:
+         raise ValueError
 
 @app.route('/')
 def index():
@@ -16,11 +26,17 @@ def index():
 
 @app.route('/pages/login.html')
 def login():
-  return render_template('pages/login.html')
+  if usuarioEstaLogado == False:
+    return render_template('pages/login.html')
+  elif usuarioEstaLogado == True:
+    return render_template('pages/logout.html')
 
 @app.route('/pages/cadastro.html')
 def cadastro():
-  return render_template('pages/cadastro.html')
+  if usuarioEstaLogado == False:
+    return render_template('pages/cadastro.html')
+  elif usuarioEstaLogado == True:
+    return render_template('pages/logout.html')
 
 @app.route('/pages/redefinir-senha.html')
 def redefinir_senha():
@@ -33,6 +49,15 @@ def sobre():
 @app.route('/pages/suporte.html')
 def suporte():
   return render_template('pages/suporte.html')
+
+@app.route('/user-login', methods=['POST'])
+def user_login():
+  # Obtendo as variáveis globais
+  global usuarioEstaLogado
+  # Obtendo os dados 
+  data = request.data.decode('UTF-8')
+  # Convertendo data para boolean
+  usuarioEstaLogado = str_to_bool(data)
 
 @app.route('/create-instance', methods=['POST'])
 def create_instance():
@@ -65,10 +90,9 @@ def create_instance():
         os.system(f'python -u changedetection.py -d {path} -p {port+usuarioId}')
     except OSError as error:
       print(error)
-    return 'ok'
 
 if __name__ == '__main__':
-  # Usar uma porta específica, apenas se a padrão não funcionar
+  # Usar uma porta específica, apenas se a porta padrão não funcionar
   # app.run(host='0.0.0.0', port=4999)
   app.run(debug=True)
   # Onde ficam armazenados os arquivos estáticos (CSS, JavaScript)

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Law&Tech | Logout</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login-cadastro.css') }}">
+</head>
+<body>
+    <header>
+        <h1><a href="/" class="link">Law&Tech</a></h1>
+        <nav>
+          <ul>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a href="suporte.html">Suporte</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+          </ul>
+        </nav>
+        <hr>
+    </header>
+    <div class="container">
+        <h1 class="h1-logout">Você está logado no sistema. Clique no botão abaixo para sair do sistema.</h1>
+        <button class="btn-logout" onclick="logout()">Logout</button>
+    </div>
+    <footer>
+        <h3>Entre em contato conosco</h3>
+        <ul>
+          <li><a href="https://github.com/renanleitev">Renan Leite Vieira</a></li>
+          <li><a href="https://github.com/i1iadeilton">José Adeilton</a></li>
+          <li><a href="https://github.com/marinhojp">João Pedro Marinho</a></li>
+        </ul>    
+    </footer>
+</body>
+<script>
+    async function logout() {
+        const usuarioEstaLogado = 'False';
+        // Fazendo uma requisição para o Flask, para saber se o usuário está logado ou não
+        // Depois, redireciona para a página principal
+        fetch('/user-login', {method: 'POST', body: usuarioEstaLogado})
+        .then(window.location.href = '/');
+    }
+</script>
+</html>

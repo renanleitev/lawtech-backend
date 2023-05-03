@@ -114,6 +114,18 @@ footer h3 {
     color: var(--white);
     cursor: pointer;
 }
+/* Estilos para a página de logout */
+.h1-logout {
+    color: var(--white);
+}
+.btn-logout {
+    width: 200px;
+    height: 100px;
+    font-size: 40px;
+}
+.btn-logout:hover{
+    cursor: pointer;
+}
 /* Estilos para mobile */
 @media screen and (max-width: 340px){
     .form-box{
