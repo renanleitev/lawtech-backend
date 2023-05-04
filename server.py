@@ -54,6 +54,10 @@ def sobre():
 def jusupdate():
   return render_template('pages/jusupdate.html')
 
+@app.route('/pages/atualizacoes.html')
+def atualizacoes():
+  return render_template('pages/atualizacoes.html')
+
 @app.route('/pages/suporte.html')
 def suporte():
   return render_template('pages/suporte.html')

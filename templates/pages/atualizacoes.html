@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Law&Tech | Atualizações de Processos Eletrônicos</title>
+  <link href="{{ url_for('static', filename='css/jusupdate.css') }}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <header>
+    <h1><a href="/" class="link">Law&Tech</a></h1>
+    <nav>
+      <ul>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="suporte.html">Suporte</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+    </nav>
+    <hr>
+  </header>
+  <!-- &#8595; = Código referente a seta para baixo -->
+  <section class="main-section">
+    <h1>
+      O JusUpdate possui suporte a diversos sistemas processuais eletrônicos, com atualizações em tempo real. <br>
+      <p>
+        Saiba mais &#8595;
+      </p>
+    </h1>
+  </section>
+
+  <section>
+    <div class="container reveal">
+      <h2>Sistemas Processuais</h2>
+      <div class="text-container">
+        <div class="text-box">
+          <h3>E-saj</h3>
+          <p>
+            O portal e-SAJ é uma solução que visa facilitar a troca de informações e agilizar o trâmite processual por meio de diversos serviços WEB voltados para os advogados, cidadãos e serventuários da justiça.
+        </p>
+        </div>
+        <img src="../../static/images/pagina-atualizacoes/pagina-atualizacoes-01.png" alt="">
+      </div>
+    </div>
+  </section>
+  
+  <section>
+    <div class="container reveal">
+      <div class="text-container">
+        <div class="text-box">
+          <h3>PJE</h3>
+          <p>
+            O PJe, Processo Judicial Eletrônico, é um sistema de tramitação de processos judiciais cujo objetivo é atender às necessidades dos diversos segmentos do Poder Judiciário brasileiro (Justiça Militar da União e dos Estados, Justiça do Trabalho e Justiça Comum, Federal e Estadual). 
+          </p>
+        </div>
+        <img src="../../static/images/pagina-atualizacoes/pagina-atualizacoes-02.png" alt="">
+      </div>
+    </div>
+  </section>
+  
+  <!-- &#8593; = Código referente a seta para cima -->
+  <button onclick="topFunction()" id="myBtn" title="Go to top">&#8593;</button>
+
+  <footer>
+    <h3>Entre em contato conosco</h3>
+    <ul>
+      <li><a href="https://github.com/renanleitev">Renan Leite Vieira</a></li>
+      <li><a href="https://github.com/i1iadeilton">José Adeilton</a></li>
+      <li><a href="https://github.com/marinhojp">João Pedro Marinho</a></li>
+    </ul>    
+  </footer>
+
+  <script>
+    // Get the button:
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+            }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+    function reveal() {
+      let reveals = document.querySelectorAll(".reveal");
+
+      for (let i = 0; i < reveals.length; i++) {
+        let windowHeight = window.innerHeight;
+        let elementTop = reveals[i].getBoundingClientRect().top;
+        let elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        } else {
+          reveals[i].classList.remove("active");
+        }
+      }
+    }
+    window.addEventListener("scroll", reveal);
+  </script>
+</body>
+</html>

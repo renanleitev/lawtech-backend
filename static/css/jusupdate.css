@@ -103,7 +103,7 @@ section .text-container{
 	 display: flex;
 }
 section .text-container img{
-	width: 70%;
+	width: 50vw;
 }
 section .text-container p{
 	font-size: 25px;
@@ -134,6 +134,10 @@ section .text-container .text-box h3{
 .main-section{
 	background-color: var(--dark);
 	color: var(--white);
+	text-align: center;
+}
+.main-section h1 {
+	width: 50vw;
 }
 /* Estilo do botão voltar ao topo */
 #myBtn {

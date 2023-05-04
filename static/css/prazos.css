@@ -129,6 +129,7 @@ footer h3 {
 }
 .img-tres{
     background-image: url("../images/pagina-prazos/pagina-prazos-03.jpg");
+	background-position: center;
 }
 .img-quatro{
     background-image: url("../images/pagina-prazos/pagina-prazos-04.jpg");
