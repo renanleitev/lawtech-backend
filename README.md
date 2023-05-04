@@ -30,15 +30,15 @@ O servidor irá rodar na porta 3000, sendo acessível pelo endereço:
 
 Caso a porta 3000 esteja ocupada, rodar o servidor na próxima porta disponível (3001, 3002, ...):
 
-    json-server --watch database.json -p 3001
+    json-server --watch database.json -p 3002
 
 Após, executar o script bash "change-port.sh" e passar os seguintes argumentos:
 
-    ./change-port.sh {porta-json-server}
+    ./change-port.sh {nome-arquivo.html} {porta-json-server}
     
 Exemplo:
     
-    ./change-port.sh 3001
+    ./change-port.sh login.html 3002
 
 Obs: Não feche o terminal. Deixe o JSON Server rodando, para poder acessar o banco de dados.
 
@@ -103,8 +103,8 @@ Se estiver executando as configurações padrões (JSON Server = 3000 / Flask = 
 
 ## TODO
 
-1. Criar banco de dados, para armazenar os dados dos usuários
+1. Criar banco de dados, para armazenar os dados dos usuários  
 2. Encriptar a senha dos usuários
-3. Criar um sistema de logout, para o usuário poder sair do sistema
-4. Criar mais páginas sobre o produto
-5. Descrever o passo a passo de utilização do sistema
+3. <s>Criar um sistema de logout, para o usuário poder sair do sistema</s> FEITO
+4. <s>Criar mais páginas sobre o produto</s> FEITO
+5. <s>Descrever o passo a passo de utilização do sistema</s> FEITO
