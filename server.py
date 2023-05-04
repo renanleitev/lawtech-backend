@@ -50,6 +50,10 @@ def prazos():
 def sobre():
   return render_template('pages/sobre.html')
 
+@app.route('/pages/jusupdate.html')
+def jusupdate():
+  return render_template('pages/jusupdate.html')
+
 @app.route('/pages/suporte.html')
 def suporte():
   return render_template('pages/suporte.html')

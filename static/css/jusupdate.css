@@ -80,63 +80,60 @@ footer h3 {
 	font-size: 24px;
 	margin-bottom: 20px;
 }
-/* Estilos da página sobre */
-.about-section {
-    padding: 50px;
-    text-align: center;
-    background-color: #474e5d;
-    color: white;
+/* Estilos de transição */
+section{
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-.about-section h3 {
-    width: 600px;
-    margin: auto;
+section .container{
+	margin: 100px;
 }
-.about-section p {
-    font-size: 20px;
-    line-height: 50px;
-	max-width: 900px;
-	margin: auto;
+section h1{
+	font-size: 3rem;
+	margin: 20px;
 }
-/* Estilo parallax */
-.parallax {
-  min-height: 800px;
-  background-attachment: fixed;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-/* Estilo do texto da seção */
-.text-section{
-	background-color: #00000093;
+section h2{
+	font-size: 40px;
 	text-align: center;
-	border-radius: 20px;
+	text-transform: uppercase;
+}
+section .text-container{
+	 display: flex;
+}
+section .text-container img{
+	width: 70%;
+}
+section .text-container p{
+	font-size: 25px;
+	line-height: 50px;
+}
+section .text-container .text-box{
+	margin: 20px;
 	padding: 20px;
-	line-height: 25px;
 }
-.text-section:hover{
-	background-color: #000000c4;
+section .text-container .text-box h3{
+	font-size: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 10px;
 }
-/* Imagens da seção */
-.img-um{
-  background-image: url("../images/pagina-prazos/pagina-prazos-01.jpg");
+.reveal{
+	position: relative;
+	transform: translateY(150px);
+	opacity: 0;
+	transition: 1s all ease;
 }
-.img-dois{
-    background-image: url("../images/pagina-prazos/pagina-prazos-02.jpg");
-    background-position: top;
+
+.reveal.active{
+	transform: translateY(0);
+	opacity: 1;
 }
-.img-tres{
-    background-image: url("../images/pagina-prazos/pagina-prazos-03.jpg");
-}
-.img-quatro{
-    background-image: url("../images/pagina-prazos/pagina-prazos-04.jpg");
-	background-position: center;
-}
-.img-cinco{
-    background-image: url("../images/pagina-prazos/pagina-prazos-05.jpg");
-	background-position: center;
+/* Estilo de cores das seções */
+.main-section{
+	background-color: var(--dark);
+	color: var(--white);
 }
 /* Estilo do botão voltar ao topo */
 #myBtn {
@@ -147,8 +144,8 @@ footer h3 {
 	z-index: 99; /* Make sure it does not overlap */
 	border: none; /* Remove borders */
 	outline: none; /* Remove outline */
-	background-color: black; /* Set a background color */
-	color: white; /* Text color */
+	background-color: var(--dark); /* Set a background color */
+	color: var(--white); /* Text color */
 	cursor: pointer; /* Add a mouse pointer on hover */
 	padding: 15px; /* Some padding */
 	border-radius: 10px; /* Rounded corners */
@@ -159,9 +156,12 @@ footer h3 {
 	background-color: var(--light-dark); /* Add a dark-grey background on hover */
 }
 /* Estilo para mobile */
-@media screen and (max-width: 650px) {
-    .column {
-      width: 100%;
-      display: block;
-    }
+@media (max-width: 900px){
+	section h1{
+		font-size: 2rem;
+		text-align: center;
+	}
+	section .text-container{
+		flex-direction: column;
+	}
 }

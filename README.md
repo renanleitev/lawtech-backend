@@ -34,13 +34,11 @@ Caso a porta 3000 esteja ocupada, rodar o servidor na próxima porta disponível
 
 Após, executar o script bash "change-port.sh" e passar os seguintes argumentos:
 
-    ./change-port.sh {nome-do-arquivo} {porta-json-server}
+    ./change-port.sh {porta-json-server}
     
 Exemplo:
     
-    ./change-port.sh login.html 3001
-
-Obs: Fazer isso para os arquivos "login.html" e "cadastro.html", localizados em "templates/pages", caso o JSON Server não rode na porta 3000.
+    ./change-port.sh 3001
 
 Obs: Não feche o terminal. Deixe o JSON Server rodando, para poder acessar o banco de dados.
 

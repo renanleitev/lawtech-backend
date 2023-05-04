@@ -43,6 +43,12 @@ header {
 	padding: 20px;
 	text-align: center;
 }
+header > div > a {
+	background-color: var(--dark);
+	color: var(--white);
+	padding: 10px 20px;
+	border-radius: 4px;
+}
 header > h1 {
 	float: left;
 	margin-top: 0;
