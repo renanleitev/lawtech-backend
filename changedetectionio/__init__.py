@@ -242,7 +242,7 @@ def changedetection_app(config=None, datastore_o=None):
 
     @login_manager.unauthorized_handler
     def unauthorized_handler():
-        flash("You must be logged in, please log in.", 'error')
+        flash("Você deve estar logado, por favor, faça o login.", 'error')
         return redirect(url_for('login', next=url_for('index')))
 
     @app.route('/logout')
@@ -257,7 +257,7 @@ def changedetection_app(config=None, datastore_o=None):
 
         if request.method == 'GET':
             if flask_login.current_user.is_authenticated:
-                flash("Already logged in")
+                flash("Usuário já está logado.")
                 return redirect(url_for("index"))
 
             output = render_template("login.html")
@@ -284,7 +284,7 @@ def changedetection_app(config=None, datastore_o=None):
             return redirect(url_for('index'))
 
         else:
-            flash('Incorrect password', 'error')
+            flash('Senha incorreta.', 'error')
 
         return redirect(url_for('login'))
 
@@ -481,9 +481,9 @@ def changedetection_app(config=None, datastore_o=None):
         try:
             datastore.clear_watch_history(uuid)
         except KeyError:
-            flash('Watch not found', 'error')
+            flash('Checagem de site não encontrada.', 'error')
         else:
-            flash("Cleared snapshot history for watch {}".format(uuid))
+            flash("Histórico de checagem foi limpo para o site {}".format(uuid))
 
         return redirect(url_for('index'))
 
@@ -500,9 +500,9 @@ def changedetection_app(config=None, datastore_o=None):
                     datastore.clear_watch_history(uuid)
                     #TODO: KeyError not checked, as it is above
 
-                flash("Cleared snapshot history for all watches")
+                flash("Histórico de checagem foi limpo para todos os sites cadastrados.")
             else:
-                flash('Incorrect confirmation text.', 'error')
+                flash('Erro de confirmação.', 'error')
 
             return redirect(url_for('index'))
 
@@ -522,14 +522,14 @@ def changedetection_app(config=None, datastore_o=None):
         using_default_check_time = True
         # More for testing, possible to return the first/only
         if not datastore.data['watching'].keys():
-            flash("No watches to edit", "error")
+            flash("Nenhuma checagem de site para editar.", "error")
             return redirect(url_for('index'))
 
         if uuid == 'first':
             uuid = list(datastore.data['watching'].keys()).pop()
 
         if not uuid in datastore.data['watching']:
-            flash("No watch with the UUID %s found." % (uuid), "error")
+            flash("Nenhuma checagem com UUID %s encontrada." % (uuid), "error")
             return redirect(url_for('index'))
 
         switch_processor = request.args.get('switch_processor')
@@ -537,7 +537,7 @@ def changedetection_app(config=None, datastore_o=None):
             for p in processors.available_processors():
                 if p[0] == switch_processor:
                     datastore.data['watching'][uuid]['processor'] = switch_processor
-                    flash(f"Switched to mode - {p[1]}.")
+                    flash(f"Alternando para o modo - {p[1]}.")
                     datastore.clear_watch_history(uuid)
                     redirect(url_for('edit_page', uuid=uuid))
 
@@ -615,9 +615,9 @@ def changedetection_app(config=None, datastore_o=None):
             datastore.data['watching'][uuid].update(extra_update_obj)
 
             if request.args.get('unpause_on_save'):
-                flash("Updated watch - unpaused!.")
+                flash("Checagem atualizada - retomada com sucesso!.")
             else:
-                flash("Updated watch.")
+                flash("Checagem atualizada.")
 
             # Re #286 - We wait for syncing new data to disk in another thread every 60 seconds
             # But in the case something is added we should save straight away
@@ -634,7 +634,7 @@ def changedetection_app(config=None, datastore_o=None):
 
         else:
             if request.method == 'POST' and not form.validate():
-                flash("An error occurred, please see below.", "error")
+                flash("Um erro ocorreu, por favor, verifique abaixo.", "error")
 
             visualselector_data_is_ready = datastore.visualselector_data_is_ready(uuid)
 
@@ -718,7 +718,7 @@ def changedetection_app(config=None, datastore_o=None):
                 # SALTED_PASS means the password is "locked" to what we set in the Env var
                 if not os.getenv("SALTED_PASS", False):
                     datastore.remove_password()
-                    flash("Password protection removed.", 'notice')
+                    flash("Proteção de senha removida.", 'notice')
                     flask_login.logout_user()
                     return redirect(url_for('settings_page'))
 
@@ -736,15 +736,15 @@ def changedetection_app(config=None, datastore_o=None):
                 if not os.getenv("SALTED_PASS", False) and len(form.application.form.password.encrypted_password):
                     datastore.data['settings']['application']['password'] = form.application.form.password.encrypted_password
                     datastore.needs_write_urgent = True
-                    flash("Password protection enabled.", 'notice')
+                    flash("Proteção de senha ativada.", 'notice')
                     flask_login.logout_user()
                     return redirect(url_for('index'))
 
                 datastore.needs_write_urgent = True
-                flash("Settings updated.")
+                flash("Configurações atualizadas.")
 
             else:
-                flash("An error occurred, please see below.", "error")
+                flash("Um erro ocorreu, por favor, verifique abaixo.", "error")
 
         output = render_template("settings.html",
                                  form=form,
@@ -823,14 +823,14 @@ def changedetection_app(config=None, datastore_o=None):
         try:
             watch = datastore.data['watching'][uuid]
         except KeyError:
-            flash("No history found for the specified link, bad link?", "error")
+            flash("Nenhum histórico de checagem encontrado para a referida URL, site inválido?", "error")
             return redirect(url_for('index'))
 
         # For submission of requesting an extract
         extract_form = forms.extractDataForm(request.form)
         if request.method == 'POST':
             if not extract_form.validate():
-                flash("An error occurred, please see below.", "error")
+                flash("Um erro ocorreu, por favor, verifique abaixo.", "error")
 
             else:
                 extract_regex = request.form.get('extract_regex').strip()
@@ -845,14 +845,14 @@ def changedetection_app(config=None, datastore_o=None):
                     return response
 
 
-                flash('Nothing matches that RegEx', 'error')
+                flash('Nada foi encontrado com o RegEx.', 'error')
                 redirect(url_for('diff_history_page', uuid=uuid)+'#extract')
 
         history = watch.history
         dates = list(history.keys())
 
         if len(dates) < 2:
-            flash("Not enough saved change detection snapshots to produce a report.", "error")
+            flash("Não foi possível encontrar dados suficientes para produzir um relatório.", "error")
             return redirect(url_for('index'))
 
         # Save the current newest history as the most recently viewed
@@ -925,7 +925,7 @@ def changedetection_app(config=None, datastore_o=None):
         try:
             watch = datastore.data['watching'][uuid]
         except KeyError:
-            flash("No history found for the specified link, bad link?", "error")
+            flash("Nenhum histórico de checagem encontrado para a referida URL, site inválido?", "error")
             return redirect(url_for('index'))
 
         system_uses_webdriver = datastore.data['settings']['application']['fetch_backend'] == 'html_webdriver'
@@ -938,7 +938,7 @@ def changedetection_app(config=None, datastore_o=None):
 
         # Never requested successfully, but we detected a fetch error
         if datastore.data['watching'][uuid].history_n == 0 and (watch.get_error_text() or watch.get_error_snapshot()):
-            flash("Preview unavailable - No fetch/check completed or triggers not reached", "error")
+            flash("Prévia indisponível - Nenhuma checagem disponível e/ou checagem não concluída.", "error")
             output = render_template("preview.html",
                                      content=content,
                                      history_n=watch.history_n,
@@ -1144,7 +1144,7 @@ def changedetection_app(config=None, datastore_o=None):
 
         url = request.form.get('url').strip()
         if datastore.url_exists(url):
-            flash('The URL {} already exists'.format(url), "error")
+            flash('A URL do site {} já existe.'.format(url), "error")
             return redirect(url_for('index'))
 
         add_paused = request.form.get('edit_and_watch_submit_button') != None
@@ -1153,12 +1153,12 @@ def changedetection_app(config=None, datastore_o=None):
 
         if new_uuid:
             if add_paused:
-                flash('Watch added in Paused state, saving will unpause.')
+                flash('A checagem do site está pausada, salvar irá retomar.')
                 return redirect(url_for('edit_page', uuid=new_uuid, unpause_on_save=1))
             else:
                 # Straight into the queue.
                 update_q.put(queuedWatchMetaData.PrioritizedItem(priority=1, item={'uuid': new_uuid}))
-                flash("Watch added.")
+                flash("Site adicionado com sucesso.")
 
         return redirect(url_for('index'))
 
@@ -1170,14 +1170,14 @@ def changedetection_app(config=None, datastore_o=None):
         uuid = request.args.get('uuid')
 
         if uuid != 'all' and not uuid in datastore.data['watching'].keys():
-            flash('The watch by UUID {} does not exist.'.format(uuid), 'error')
+            flash('A checagem de UUID {} não existe.'.format(uuid), 'error')
             return redirect(url_for('index'))
 
         # More for testing, possible to return the first/only
         if uuid == 'first':
             uuid = list(datastore.data['watching'].keys()).pop()
         datastore.delete(uuid)
-        flash('Deleted.')
+        flash('Deletado.')
 
         return redirect(url_for('index'))
 
@@ -1193,7 +1193,7 @@ def changedetection_app(config=None, datastore_o=None):
         if new_uuid:
             if not datastore.data['watching'].get(uuid).get('paused'):
                 update_q.put(queuedWatchMetaData.PrioritizedItem(priority=5, item={'uuid': new_uuid, 'skip_when_checksum_same': True}))
-            flash('Cloned.')
+            flash('Clonado.')
 
         return redirect(url_for('index'))
 
@@ -1228,7 +1228,7 @@ def changedetection_app(config=None, datastore_o=None):
                 if watch_uuid not in running_uuids and not datastore.data['watching'][watch_uuid]['paused']:
                     update_q.put(queuedWatchMetaData.PrioritizedItem(priority=1, item={'uuid': watch_uuid, 'skip_when_checksum_same': False}))
                     i += 1
-        flash("{} URL na fila para verificar se houve atualização.".format(i))
+        flash("{} site(s) na fila para verificar se houve atualização.".format(i))
         return redirect(url_for('index', tag=tag))
 
     @app.route("/form/checkbox-operations", methods=['POST'])
@@ -1242,35 +1242,35 @@ def changedetection_app(config=None, datastore_o=None):
                 uuid = uuid.strip()
                 if datastore.data['watching'].get(uuid):
                     datastore.delete(uuid.strip())
-            flash("{} watches deleted".format(len(uuids)))
+            flash("{} site(s) deletetado(s) com sucesso.".format(len(uuids)))
 
         elif (op == 'pause'):
             for uuid in uuids:
                 uuid = uuid.strip()
                 if datastore.data['watching'].get(uuid):
                     datastore.data['watching'][uuid.strip()]['paused'] = True
-            flash("{} watches paused".format(len(uuids)))
+            flash("A checagem de {} site(s) foi pausada.".format(len(uuids)))
 
         elif (op == 'unpause'):
             for uuid in uuids:
                 uuid = uuid.strip()
                 if datastore.data['watching'].get(uuid):
                     datastore.data['watching'][uuid.strip()]['paused'] = False
-            flash("{} watches unpaused".format(len(uuids)))
+            flash("A checagem de {} site(s) foi retomada.".format(len(uuids)))
 
         elif (op == 'mute'):
             for uuid in uuids:
                 uuid = uuid.strip()
                 if datastore.data['watching'].get(uuid):
                     datastore.data['watching'][uuid.strip()]['notification_muted'] = True
-            flash("{} watches muted".format(len(uuids)))
+            flash("A checagem de {} site(s) foi silenciada.".format(len(uuids)))
 
         elif (op == 'unmute'):
             for uuid in uuids:
                 uuid = uuid.strip()
                 if datastore.data['watching'].get(uuid):
                     datastore.data['watching'][uuid.strip()]['notification_muted'] = False
-            flash("{} watches un-muted".format(len(uuids)))
+            flash("A checagem de {} site(s) foi ativada.".format(len(uuids)))
 
         elif (op == 'recheck'):
             for uuid in uuids:
@@ -1278,7 +1278,7 @@ def changedetection_app(config=None, datastore_o=None):
                 if datastore.data['watching'].get(uuid):
                     # Recheck and require a full reprocessing
                     update_q.put(queuedWatchMetaData.PrioritizedItem(priority=1, item={'uuid': uuid, 'skip_when_checksum_same': False}))
-            flash("{} watches queued for rechecking".format(len(uuids)))
+            flash("{} site(s) aguardando checagem.".format(len(uuids)))
 
         elif (op == 'notification-default'):
             from changedetectionio.notification import (
@@ -1291,7 +1291,7 @@ def changedetection_app(config=None, datastore_o=None):
                     datastore.data['watching'][uuid.strip()]['notification_body'] = None
                     datastore.data['watching'][uuid.strip()]['notification_urls'] = []
                     datastore.data['watching'][uuid.strip()]['notification_format'] = default_notification_format_for_watch
-            flash("{} watches set to use default notification settings".format(len(uuids)))
+            flash("{} site(s) definido(s) para as configurações globais de notificação.".format(len(uuids)))
 
         return redirect(url_for('index'))
 
@@ -1342,7 +1342,7 @@ def changedetection_app(config=None, datastore_o=None):
 
         except Exception as e:
             logging.error("Error sharing -{}".format(str(e)))
-            flash("Could not share, something went wrong while communicating with the share server - {}".format(str(e)), 'error')
+            flash("Não foi possível compartilhar, algo deu errado durante a comunicação com o servidor - {}".format(str(e)), 'error')
 
         # https://changedetection.io/share/VrMv05wpXyQa
         # in the browser - should give you a nice info page - wtf

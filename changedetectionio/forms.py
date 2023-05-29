@@ -348,7 +348,7 @@ class quickWatchForm(Form):
 
     url = fields.URLField('URL', validators=[validateURL()])
     tag = StringField('Tag', [validators.Optional()])
-    watch_submit_button = SubmitField('Observar', render_kw={"class": "pure-button pure-button-primary"})
+    watch_submit_button = SubmitField('Checar', render_kw={"class": "pure-button pure-button-primary"})
     processor = RadioField(u'Processor', choices=processors.available_processors(), default="text_json_diff")
     edit_and_watch_submit_button = SubmitField('Editar', render_kw={"class": "pure-button pure-button-primary"})
 

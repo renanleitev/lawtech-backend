@@ -4,6 +4,14 @@ Projeto criado por alunos de graduação da Faculdade Senac Pernambuco, usando H
 
 É um sistema de gerenciamento de processos judiciais eletrônicos, com atualizações sobre as últimas movimentações processuais.
 
+## Para clonar o repositório
+
+    git clone https://github.com/renanleitev/lawtech-backend.git
+
+## Para atualizar o projeto
+
+    git pull
+
 ## Primeiros passos
 
 Antes de tudo, é preciso criar uma pasta chamada 'datastore' no diretório atual. Só é preciso fazer uma vez, quando houver clonado este repositório.

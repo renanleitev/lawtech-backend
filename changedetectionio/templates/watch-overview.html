@@ -10,7 +10,7 @@
     <form class="pure-form" action="{{ url_for('form_quick_watch_add') }}" method="POST" id="new-watch-form">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <fieldset>
-            <legend>Insira uma URL</legend>
+            <legend>Insira uma URL de um site (Ex: https://www.google.com.br) </legend>
             <div id="watch-add-wrapper-zone">
                 <div>
                     {{ render_simple_field(form.url, placeholder="https://...", required=true) }}
@@ -34,7 +34,7 @@
         <button class="pure-button button-secondary button-xsmall"  name="op" value="pause">Pausar</button>
         <button class="pure-button button-secondary button-xsmall"  name="op" value="unpause">Retomar</button>
         <button class="pure-button button-secondary button-xsmall"  name="op" value="mute">Silenciar</button>
-        <button class="pure-button button-secondary button-xsmall"  name="op" value="unmute">Observar</button>
+        <button class="pure-button button-secondary button-xsmall"  name="op" value="unmute">Checar</button>
         <button class="pure-button button-secondary button-xsmall" name="op" value="recheck">Rechecar</button>
         <button class="pure-button button-secondary button-xsmall" name="op" value="notification-default">Usar notificação padrão</button>
         <button class="pure-button button-secondary button-xsmall" style="background: #dd4242; font-size: 70%" name="op" value="delete">Deletar</button>
